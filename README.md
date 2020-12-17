@@ -2,7 +2,7 @@
 
 ---
 
-_A web application that delivers meals to individuals at home who are unable to purchase or prepare their own meals._
+A web application that delivers meals to individuals at home who are unable to purchase or prepare their own meals.
 
 #### Why would they need help
 
