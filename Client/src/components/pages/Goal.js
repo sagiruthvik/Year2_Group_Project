@@ -2,21 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import packing from '../../img/packing.jpg'
 
-function About() {
+function Goal() {
     return (
         <div className ="About">
             <div className = "block">
-                <ul className ="list">
-                       <Link to ="/About" className="about_link1" >
+                <ul>
+                    <li className = ";inks"></li>
+                       <Link to ="/About" className="about_links" >
                         What is Meals On Wheels?
                        </Link>
-              <Link to ="/Goal" className="about_link2" >
+              <Link to ="/Goal" className="about_links" >
               What is our goal?
               </Link>
-              <Link to ="/Services" className="about_link3" >
+              <Link to ="/Services" className="about_links" >
               What are services do we offer?
               </Link>
-              <Link to ="/Who_Are_We_Helping?" className="about_link4" >
+              <Link to ="/Who_Are_We_Helping?" className="about_links" >
               What Can You Do To Help?
               </Link>
               </ul>
@@ -26,4 +27,4 @@ function About() {
     )
 }
 
-export default About
+export default Goal

@@ -1,4 +1,47 @@
-.packing {
-  height: 100%;
-  width: 20%;
+.About {
+  background-image: url("/src/img/packing.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+
+.block {
+  background-color: #181818;
+  width: 100%;
+  margin-top: 18%;
+}
+
+.list {
+  display: flex;
+  width: 60rem;
+  margin-left: 3rem;
+  margin-top: 12rem;
+  color: #181818;
+  border-right: #de5e5a 3px solid;
+}
+
+.list a {
+  color: white;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.about_link1 {
+  width: 11.7rem;
+}
+
+.about_link2 {
+  width: 8rem;
+}
+
+.about_link3 {
+  width: 13.5rem;
+}
+
+.about_link4 {
+  width: 11.9rem;
+}
+.list a:hover {
+  color: #2ed370;
 }

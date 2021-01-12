@@ -10,7 +10,7 @@
 .Help,
 .What_Can_You_Do {
   display: flex;
-  height: 90vh;
+  height: 92.1vh;
 }
 
 @import "./Nav.css";

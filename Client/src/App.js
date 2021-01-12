@@ -11,6 +11,7 @@ import Problem from './components/pages/Problem'
 import Facts from './components/pages/Facts'
 import Help from './components/pages/Help'
 import What_Can_You_Do from './components/pages/What_Can_You_Do'
+import Goal from './components/pages/Goal'
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
         <Route path= '/Facts' exact component = {Facts} />
         <Route path= '/Help' exact component = {Help} />
         <Route path= '/What_Can_You_Do' exact component = {What_Can_You_Do} />
+        <Route path= '/Goal' exact component = {Goal} />
       </Switch>
       <Footer/>
       </Router>
