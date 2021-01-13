@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import packing from '../../img/packing.jpg'
+import Footer from '../Footer'
 
 function About() {
     return (
@@ -35,14 +36,13 @@ function About() {
               versions of Lorem Ipsum.
               </p>
               <div className = "support">
-              <h2 className = "check_out">
-              Check out different ways to help us
-              </h2>
-              <Link to ="/Help" className="navbar_links">
+              
+              <Link to ="/Help" className="help_us">
                         Help Us
                     </Link>
                     </div>
               </div>
+              <Footer/>
             </div>
 
         </div>

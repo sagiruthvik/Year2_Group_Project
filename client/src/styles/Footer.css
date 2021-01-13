@@ -1,7 +1,5 @@
 .footer {
-  display: flex;
   justify-content: space-around;
-  justify-content: flex-start;
   flex-direction: column;
   margin-top: 0px;
   height: 18vh;
@@ -15,8 +13,6 @@
 }
 
 .social-icons {
-  display: flex;
-  width: 10%;
   margin-top: 6px;
 }
 
@@ -56,7 +52,6 @@
 
 .underSection a:hover {
   opacity: 1;
-  background-color: #1b1a1a;
   color: #2ed370;
   transform: scale(1.05);
 }
