@@ -25,7 +25,6 @@ function App() {
         <Route path= '/Help' exact component = {Help} />
         <Route path= '/What_Can_You_Do' exact component = {What_Can_You_Do} />
       </Switch>
-      <Footer/>
       </Router>
     
       

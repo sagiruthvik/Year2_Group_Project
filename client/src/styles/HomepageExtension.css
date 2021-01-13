@@ -79,7 +79,7 @@
 
 @media screen and (max-width: 1240px) {
   .background {
-    height: 220vh;
+    height: 210vh;
   }
   .imgs {
     display: flex;

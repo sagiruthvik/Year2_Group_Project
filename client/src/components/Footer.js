@@ -17,7 +17,7 @@ const Footer = () => {
 </div>
 <div className= "underSection">
 <ul className = "info">
-<Link to ="/About" className="navbar_links" >
+<Link to ="/About"  >
  About
  </Link>
 <li> <a href="#">Food Waste</a> </li>
