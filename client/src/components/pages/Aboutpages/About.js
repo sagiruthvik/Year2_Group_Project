@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import packing from '../../img/packing.jpg'
-import Footer from '../Footer'
+import packing from '../../../img/packing.jpg'
+import Footer from '../../Footer'
 
 function About() {
     return (
@@ -14,10 +14,10 @@ function About() {
               <Link to ="/Goal" className="about_link2 link" >
               What is our goal?
               </Link>
-              <Link to ="/Services" className="about_link3 link " >
-              What are services do we offer?
+              <Link to ="/Services_Offered" className="about_link3 link " >
+              What services do we offer?
               </Link>
-              <Link to ="/Who_Are_We_Helping?" className="about_link4 link" >
+              <Link to ="/What_Can_You_Do" className="about_link4 link" >
               What Can You Do To Help?
               </Link>
               </ul>
