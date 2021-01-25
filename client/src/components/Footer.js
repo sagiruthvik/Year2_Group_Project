@@ -20,15 +20,29 @@ const Footer = () => {
 <Link to ="/About"  >
  About
  </Link>
-<li> <a href="#">Food Waste</a> </li>
-<li> <a href="#">Help Us</a> </li>
-<li> <a href="#">Donate</a> </li>
+ <Link to ="/Waste"  >
+ Food Waste
+ </Link>
+ <Link to ="/About"  >
+ Help Us
+ </Link>
+ <Link to ="/Donate"  >
+ Donate
+ </Link>
 </ul>
 <ul className = "terms">
-<li> <a href="#">T&C</a> </li>
-<li> <a href="#">FAQ</a> </li>
-<li> <a href="#">Contact Us</a> </li>
-<li> <a href="#">Privacy Policy</a> </li>
+<Link to ="/T&C"  >
+ T&C
+ </Link>
+ <Link to ="/FAQ"  >
+ FAQ
+ </Link>
+ <Link to ="/Contact"  >
+ Contact Us
+ </Link>
+ <Link to ="/Ppolicy"  >
+ Privacy Policy
+ </Link>
 </ul>
 </div>
 </div>
