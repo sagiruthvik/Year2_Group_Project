@@ -29,20 +29,20 @@
 .underSection {
   display: flex;
   margin-top: 1rem;
-  margin-left: 2rem;
+  margin-left: 1.9rem;
 }
-
 .info a {
   font-family: "Arvo", sans-serif;
   font-size: 14px;
   color: white;
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 
 .terms a {
   font-family: "Arvo", sans-serif;
   font-size: 14px;
   color: white;
+  margin-right: 2rem;
 }
 
 .info,
@@ -54,4 +54,35 @@
   opacity: 1;
   color: #2ed370;
   transform: scale(1.05);
+}
+
+@media screen and (max-width: 1240px) {
+  .info a {
+    font-size: 12px;
+  }
+  .terms a {
+    font-size: 12px;
+  }
+  .iconz {
+    min-width: 1.8rem;
+    min-height: 1.8rem;
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 714px) {
+  .info {
+    height: 1.5rem;
+  }
+  .info a {
+    white-space: nowrap;
+  }
+  .terms {
+    position: relative;
+    left: -20.5rem;
+    top: 2rem;
+  }
+  .underSection {
+    width: 43rem;
+  }
 }
