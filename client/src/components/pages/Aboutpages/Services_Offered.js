@@ -15,7 +15,7 @@ const Services_Offered = () => {
           What is our goal?
           </Link>
           <Link to ="/Services_Offered" className="about_link3 link " >
-          What are services do we offer?
+          What services do we offer?
           </Link>
           <Link to ="/What_Can_You_Do" className="about_link4 link" >
           What Can You Do To Help?

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import packing from '../../../img/packing.jpg'
 import Footer from '../../Footer'
 
 function About() {

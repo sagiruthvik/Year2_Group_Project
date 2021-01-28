@@ -1,8 +1,5 @@
 import React from 'react'
-import logo from './logo.svg';
 import './styles/App.css';
-import Homepage from "./components/pages/Homepage"
-import HomepageExtension from "./components/pages/HomepageExtension"
 import Navbar from './components/Navbar/Navbar'
 import About from './components/pages/Aboutpages/About'
 import Goal from './components/pages/Aboutpages/Goal'
