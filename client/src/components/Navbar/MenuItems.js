@@ -10,8 +10,8 @@ export const MenuItems =[
     cName: 'dropdown-link'
  },
  {
-    title: 'What Can You Do To Help',
-    path: './What_Can_You_Do',
+    title: 'How Can I Contribute?',
+    path: './Contribute',
     cName: 'dropdown-link'
  }
 ];
