@@ -1,0 +1,4 @@
+.Favourites, .Payments, .Addresses, .Orders{
+    display : flex;
+    justify-content: center;
+  }

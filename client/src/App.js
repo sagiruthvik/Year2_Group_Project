@@ -11,6 +11,7 @@ import Facts from './components/pages/Facts'
 import Help from './components/pages/Help'
 
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
+import Main from './components/pages/Profilepages/Main';
 function App() {
   
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path= '/Problem' exact component = {Problem} />
         <Route path= '/Facts' exact component = {Facts} />
         <Route path= '/Help' exact component = {Help} />
+        <Route path= '/Profile/Orders' exact component = {Main} />
         
       </Switch>
       </Router>

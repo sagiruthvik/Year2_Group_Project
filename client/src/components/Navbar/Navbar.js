@@ -59,6 +59,11 @@ const onMouseLeave = () => {
                     </Link>
                 </li>
                 <li className= "nav-item">
+                    <Link to ="/Profile/Orders" className="navbar_links" onClick={closeMobileMenu}>
+                    Profile
+                    </Link>
+                </li>
+                <li className= "nav-item">
                     <Link to ="/Sign-Up" className="navbar_links_mobile" onClick={closeMobileMenu}>
                         Sign Up
                     </Link>
