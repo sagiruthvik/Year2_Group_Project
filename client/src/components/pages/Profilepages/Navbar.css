@@ -15,7 +15,7 @@
 .sidebar-men {
   background-color: #1A1A1D;
   width: 250px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   position: fixed;

@@ -1,4 +1,159 @@
-.Favourites, .Payments, .Addresses, .Orders{
+.Favourites, .Payments, .Addresses{
     display : flex;
     justify-content: center;
   }
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  flex-grow: 1;
+  flex-basis: 0;
+  margin-left: 250px;
+  padding: 20px;
+  margin-top: 0px;
+  background-color: #6f0527;
+}
+
+.column{
+  padding: 20px;
+}
+
+.card img{
+  height: 150px;
+  width: 170px;
+  position: relative;
+   margin-top: -160px;
+  margin-left: -260px; 
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.res_details{
+  /* background-color: rgb(48, 41, 41); */
+  background-color: #9a1750;
+  margin-top: -64px;
+  margin-left: -40px;
+  width: 450px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.card .res_name{
+  font-size: x-large;
+  font-weight: bolder;
+  /* margin-left: 220px;
+  margin-top: -30px; */
+  /* color: #f97437; */
+  color: #e3afbc;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 230px;
+  padding-top: 20px;
+}
+
+.card .res_add{
+font-size: smaller;
+color:#ee4c7c;
+  margin-left: 130px;
+  margin-top: 0px;
+}
+
+.card .order_no{
+  /* color: gray;
+  font-size: small; */
+  color:#ee4c7c;
+  margin-left: 130px;
+  margin-top: px;
+}
+
+.order_details{
+  margin-top: 10px;
+  padding: 5px;
+  color: #c3073f;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.order_details .item{
+  margin-right: 190px;
+  margin-top: 15px;
+}
+
+.price{
+  position: absolute;
+  margin-top: -38px;
+  margin-left: 300px;
+  margin-top: -20px;
+}
+
+.del_date{
+  margin-right: 100px;
+  font-size: small;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.or_date{
+  margin-right: 130px;
+  font-size: small;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.btn{
+  display: flex;
+  flex-direction: row;
+  margin-left: 200px;
+  margin-top: 30px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: -1px 2px;
+  transition-duration: 0.4s;
+  border: 1px solid #5d001e;
+  border-radius: 5px;
+  background-color: #5d001e;
+  color: white;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color:#6f0527;
+  color: white; 
+  /* border: 1px solid #5d001e; */
+}
+
+/* Responsive columns */
+@media screen and (max-width: 1000px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  padding: 40px;
+  width: 450px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  margin-top: 10px;
+  text-align: center;
+  /* background-color: #e3e2df; */
+  background-color: #1A1A1D;
+}
+
+.card:hover{
+  cursor: pointer;
+  box-shadow: 8px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  margin-top: -1px;
+  transition: 0.4s;
+}
