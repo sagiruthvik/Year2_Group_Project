@@ -54,16 +54,12 @@ public class Users implements UserDetails {
 
     @NotNull(message = "Email cannot be null.")
     @Email(message = "Invalid Email Address.")
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false)
     private String email;
 
     @NotNull(message = "Password cannot be null.")
     @Column(name = "password", nullable = false)
     private String password;
-
-//    @NotNull(message = "Username cannot be null.")
-//    @Column(name = "username", nullable = false, unique = true)
-//    private String username;
 
     @Enumerated(EnumType.STRING)
     @Column(name="user_role")
@@ -106,7 +102,7 @@ public class Users implements UserDetails {
                  @Email(message = "Invalid Email Address.") String email,
                  @NotNull(message = "Password cannot be null.") String password,
                  @NotNull UserRoles userRole, String phoneNumber,
-                 String allergy, @NotNull(message = "Account Verified cannot be null") Boolean accountVerified) {
+                 String allergy) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -115,23 +111,7 @@ public class Users implements UserDetails {
         this.userRole = userRole;
         this.phoneNumber = phoneNumber;
         this.allergy = allergy;
-        this.accountVerified = accountVerified;
     }
-
-//    public Users(String firstName, String lastName, Date dateOfBirth, String email, String password,
-//                 String phoneNumber, String allergy, Boolean verified, UserRoles userRole) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.dateOfBirth = dateOfBirth;
-//        this.email = email;
-////      this.username = username;
-//        this.password = password;
-//        // TODO : IS ADDRESS_ID meant to be added here or create in post method.
-//        this.phoneNumber = phoneNumber;
-//        this.allergy = allergy;
-//        this.accountVerified = verified;
-//        this.userRole = userRole;
-//    }
 
     @Override
     public String toString() {

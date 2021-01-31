@@ -17,5 +17,4 @@ public class RegistrationRequest {
     private final String password;
     private final String phone;
     private final String allergy;
-    private final Boolean accountVerified;
 }
