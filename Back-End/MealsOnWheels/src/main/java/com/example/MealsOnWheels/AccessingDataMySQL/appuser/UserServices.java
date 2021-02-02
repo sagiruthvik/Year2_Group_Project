@@ -4,8 +4,6 @@ import com.example.MealsOnWheels.AccessingDataMySQL.exception.ApiRequestExceptio
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationToken;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
-import org.jetbrains.annotations.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,7 +24,7 @@ public class UserServices implements UserDetailsService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
     private final static String USER_NOT_FOUND_EMAIL = "User with email %s not found";
-    private final static String USER_NOT_FOUND_USER_ID ="User with ID %s not found";
+    private final static String USER_NOT_FOUND_USER_ID = "User with ID %s not found";
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -109,12 +107,6 @@ public class UserServices implements UserDetailsService {
                 orElseThrow(() -> (new ApiRequestException("No User Found With ID : " + userID)));
         usersRepository.delete(existingUser);
     }
-
-    private boolean validateUsername() {
-
-        return true;
-    }
-
 
     //validate username
     //validate email

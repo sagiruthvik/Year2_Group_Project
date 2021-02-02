@@ -15,6 +15,8 @@ public class EmailValidator implements Predicate<String> {
 
     @Override
     public boolean test(String email) {
+        if(email == null || email.equals(""))
+            throw new IllegalStateException("Email Cannot be null or empty.");
         return IS_EMAIL_VALID.test(email);
     }
 }

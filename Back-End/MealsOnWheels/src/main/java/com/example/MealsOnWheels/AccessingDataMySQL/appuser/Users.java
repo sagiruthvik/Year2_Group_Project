@@ -18,6 +18,7 @@ import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -64,7 +65,7 @@ public class Users implements UserDetails {
     @Enumerated(EnumType.STRING)
     @Column(name="user_role")
     @NotNull
-    private UserRoles userRole = UserRoles.USER;
+    private UserRoles userRole;
 
     //@NotNull(message = "AddressID cannot be null")
     @Column(name = "address_id") //TODO Check if null is required here.
@@ -135,8 +136,8 @@ public class Users implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.name());
-        return Collections.singletonList(authority);
+        //SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.name());
+        return userRole.getGrantedAuthorities();
     }
 
     @Override
@@ -176,4 +177,6 @@ public class Users implements UserDetails {
     public boolean isEnabled() {
         return accountVerified;
     }
+
+
 }
