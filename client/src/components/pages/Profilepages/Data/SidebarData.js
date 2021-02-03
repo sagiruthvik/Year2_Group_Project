@@ -30,4 +30,10 @@ export const SidebarData = [
     icon: <FaIcons.FaLocationArrow />,
     cName: 'nav-text'
   },
+  {
+    title: 'Mydetails',
+    path: '/Profile/Mydetails',
+    icon: <MdIcons.MdFavorite />,
+    cName: 'nav-text'
+  },
 ];
