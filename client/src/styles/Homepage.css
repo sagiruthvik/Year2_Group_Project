@@ -22,6 +22,7 @@
 
 .searchBar {
   display: flex;
+  margin-left: -8.5rem;
 }
 
 .location {
@@ -63,7 +64,7 @@
   border-radius: 5px;
   margin-left: 0.5rem;
   font-family: "Arvo", serif;
-  margin-top: 0.46rem;
+  margin-top: 0.9rem;
 }
 
 .Findfood-button:hover {
