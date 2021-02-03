@@ -26,14 +26,18 @@ const Services_Offered = () => {
               Services Offered
           </h2>
           <p className = "text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-          when an unknown printer took a galley of type and scrambled it to make a type 
-          specimen book. It has survived not only five centuries, but also the leap into 
-          electronic typesetting, remaining essentially unchanged. It was popularised in 
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-          and more recently with desktop publishing software like Aldus PageMaker including 
-          versions of Lorem Ipsum.
+          A store has perfectly good food that they cannot sell, in seconds, 
+          they upload a description of the food using our webapp.
+          We receive a notification letting us know the food is available for collection. 
+          We send one of our delivery drones to collect it.
+          It’s a win-win! Our organisation and charities have access to a supply of fresh food and 
+          businesses can contribute to their community in a meaningful way.
+          Any individual can also contribute to sending us unused food or ingredients.
+
+          We work with local charities and work in community and inhouse kitchens to provide food
+          that is displayed on our web app for users to pick from.
+          Once picked, it is delivered straight to your doorstep safe and sound. No hassle, no risk.
+
           </p>
           <div className = "support">
           
