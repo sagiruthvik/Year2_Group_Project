@@ -27,6 +27,7 @@ function App() {
         <Route path= '/Facts' exact component = {Facts} />
         <Route path= '/Help' exact component = {Help} />
         <Route path= '/Profile/Orders' exact component = {Main} />
+		<Route path = "/browse" exact component ={Browse} />
         
       </Switch>
       </Router>
