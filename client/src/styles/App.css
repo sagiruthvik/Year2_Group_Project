@@ -13,7 +13,36 @@
   height: 90vh;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+::-webkit-scrollbar {
+  width: 14px;
+  height: 90%;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.178);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2ed370;
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cb5cff;
+}
+
+=======
 /* @import "./Nav.css"; */
+>>>>>>> 37375e14c296e68724c76ce1bd8208b55fed80a6
+=======
+/* @import "./Nav.css"; */
+>>>>>>> 37375e14c296e68724c76ce1bd8208b55fed80a6
 @import "./Homepage.css";
 @import "./Footer.css";
 @import "./HomepageExtension.css";
