@@ -13,8 +13,6 @@
   height: 90vh;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ::-webkit-scrollbar {
   width: 14px;
   height: 90%;
@@ -37,12 +35,6 @@
   background: #cb5cff;
 }
 
-=======
-/* @import "./Nav.css"; */
->>>>>>> 37375e14c296e68724c76ce1bd8208b55fed80a6
-=======
-/* @import "./Nav.css"; */
->>>>>>> 37375e14c296e68724c76ce1bd8208b55fed80a6
 @import "./Homepage.css";
 @import "./Footer.css";
 @import "./HomepageExtension.css";
