@@ -25,14 +25,15 @@ function About() {
                   What is Meals on Wheels?
               </h2>
               <p className = "text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type 
-              specimen book. It has survived not only five centuries, but also the leap into 
-              electronic typesetting, remaining essentially unchanged. It was popularised in 
-              the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-              and more recently with desktop publishing software like Aldus PageMaker including 
-              versions of Lorem Ipsum.
+              Meals On Wheels is a non profit organisation aimed at 
+              connecting neighbours with each other and local businesses 
+              so surplus food can be shared, not thrown away. This could be 
+              food nearing its sell-by date in local stores, spare home-grown vegetables, 
+              bread from your baker, or the groceries in your fridge when you go away. 
+              We exist first and foremost to reduce the environmental, social and economic impact 
+              of food waste by redistributing surplus food to our network of Charity and Community Group partners.
+              We believe that small actions can lead to big changes. Collectively we can build a more sustainable
+              future where our most precious resources are shared, not thrown away. Join today!
               </p>
               <div className = "support">
               
