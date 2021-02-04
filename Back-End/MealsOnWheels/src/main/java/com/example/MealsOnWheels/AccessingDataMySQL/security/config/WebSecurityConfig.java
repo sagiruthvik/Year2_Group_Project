@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserPermission.*;
 import static com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserRoles.*;
@@ -43,7 +44,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/management/api/**").hasRole(ADMIN.name())
                 .anyRequest()
                 .authenticated().and()
-                .formLogin();
+                .formLogin()
+                    .loginPage("/login").permitAll()
+                    .defaultSuccessUrl("/menu", true)
+                    .usernameParameter("username")
+                    .passwordParameter("password")
+                .and()
+                .rememberMe()
+                    .rememberMeParameter("remember-me")
+                .and()
+                .logout()
+                    .logoutUrl("/logout")
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+                // disable if csrf enabled and implement post method for it ref : https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/web/server/ServerHttpSecurity.LogoutSpec.html
+                    .clearAuthentication(true)
+                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID", "remember-me")
+                    .logoutSuccessUrl("/login");
     }
 
     @Override
