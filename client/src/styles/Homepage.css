@@ -54,6 +54,7 @@
   color: #2ed370;
   font-family: "Arvo", serif;
   margin-left: 18px;
+  text-decoration: none;
 }
 .Findfood-button {
   display: flex;
@@ -65,6 +66,7 @@
   margin-left: 0.5rem;
   font-family: "Arvo", serif;
   margin-top: 0.9rem;
+  text-decoration: none;
 }
 
 .Findfood-button:hover {

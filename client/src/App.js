@@ -9,6 +9,9 @@ import Home from './components/pages/Home'
 import Problem from './components/pages/Problem'
 import Facts from './components/pages/Facts'
 import Help from './components/pages/Help'
+import Login from './components/pages/Login'
+import Signup from './components/pages/Signup'
+import SearchPage from './components/pages/SearchPage'
 
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Main from './components/pages/Profilepages/Main';
@@ -27,6 +30,11 @@ function App() {
         <Route path= '/Facts' exact component = {Facts} />
         <Route path= '/Help' exact component = {Help} />
         <Route path= '/Profile/Orders' exact component = {Main} />
+        <Route path= '/SearchPage' exact component = {SearchPage} />
+        <Route path= '/Login' exact component = {Login} />
+        <Route path= '/Signup' exact component = {Signup} />
+        <Route path = "/browse" exact component ={Browse} />
+		    <Route path = "/add_food" exact component ={addFood} />
         
       </Switch>
       </Router>

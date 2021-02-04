@@ -27,14 +27,21 @@ function What_Can_You_Do() {
               What Can You Do To Help?
           </h2>
           <p className = "text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-          when an unknown printer took a galley of type and scrambled it to make a type 
-          specimen book. It has survived not only five centuries, but also the leap into 
-          electronic typesetting, remaining essentially unchanged. It was popularised in 
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-          and more recently with desktop publishing software like Aldus PageMaker including 
-          versions of Lorem Ipsum.
+          You could help raise awareness and funds to help us create a more just, 
+          more compassionate future. We're here to inspire you and support you every
+          step of the way.
+
+          Help to support our shops by donating good quality food and ingredients.
+
+          From a one-off gift to a regular donation, your support can help us to tackle 
+          the structural issues that lock people into poverty.
+
+          We are grateful to work with a number of organisations who play a vital role in supporting 
+          our work to help people in crisis, and end the need for food banks in the UK.
+
+          All of the food in our food banks is donated by people in their local communities. 
+          Could you host a collection at your church, school or business?
+          You can host an event and we will collect any times collected.
           </p>
           <div className = "support">
           

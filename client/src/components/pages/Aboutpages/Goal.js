@@ -23,17 +23,22 @@ const Goal = () => {
               </ul>
               <div className = "About_text">
               <h2 className = "title">
-                  Goal
+                  What is our goal?
               </h2>
               <p className = "text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type 
-              specimen book. It has survived not only five centuries, but also the leap into 
-              electronic typesetting, remaining essentially unchanged. It was popularised in 
-              the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-              and more recently with desktop publishing software like Aldus PageMaker including 
-              versions of Lorem Ipsum.
+              Our vision is for millions of hyper local food sharing networks 
+              all around the world. We believe Meals on Wheels can help create a world in 
+              which nothing of value goes to waste, and every single person has 
+              enough to eat – without destroying our planet in the process.
+
+              Our goal is for our partner charities, from homeless hostels to family 
+              support services, benefit through making savings on their food costs. This 
+              allows them to relocate their funding towards their core service and support
+              their underlying mission.
+
+              It’s a win-win! Charities have access to a supply of fresh food and business 
+              can contribute to their community in a meaningful and practical way by ensuring
+               that no good food goes to waste.
               </p>
               <div className = "support">
               
