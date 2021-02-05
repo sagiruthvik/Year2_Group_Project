@@ -19,21 +19,9 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Payments',
-    path: '/Profile/Payments',
-    icon: <MdIcons.MdPayment />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Addresses',
     path: '/Profile/Addresses',
     icon: <FaIcons.FaLocationArrow />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Mydetails',
-    path: '/Profile/Mydetails',
-    icon: <MdIcons.MdFavorite />,
     cName: 'nav-text'
   },
 ];

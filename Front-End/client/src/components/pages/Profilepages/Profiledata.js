@@ -4,14 +4,15 @@ import * as FaIcons from 'react-icons/fa';
 import * as IoIcons from 'react-icons/io';
 import * as GiIcons from 'react-icons/gi';
 import * as MdIcons from 'react-icons/md';
-import img from './images/arya.jpg';
+import * as GoIcons from 'react-icons/go';
+import img from './images/profile.png';
 
 export const Profiledata = [
   {
     Name : "Arya Strak",
     Address : "London",
     image : img,
-    icon : <IoIcons.IoMdLocate />,
+    icon : <GoIcons.GoLocation />,
     Reviews : "12",
     Orders : "10"
   },

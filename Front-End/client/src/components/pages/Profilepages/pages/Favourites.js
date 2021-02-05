@@ -14,7 +14,6 @@ function Favourites() {
             <p className="res_name">{item.restaurant_name}</p>
             <p className="res_add">{item.restaurant_address}</p>
             <p className="rating">Rating 3.8 {item.rating}</p>
-            {/* <button className="fav_btn" onClick={()=>setShow(!show)}>{show?<p>{item.status}</p>:null}</button> */}
             <div className="btn">
             <button className="button">Order</button>    <button className="button">Help</button>
             </div>

@@ -4,7 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './Data/SidebarData';
 import img from '../Profilepages/images/burger.png'
-import './Navbar.css';
+import './Sidebar.css';
 import { IconContext } from 'react-icons';
 
 function Sidebar() {

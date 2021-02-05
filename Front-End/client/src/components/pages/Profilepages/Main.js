@@ -4,9 +4,7 @@ import './Style/big.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Orders from './pages/Orders';
 import Favourites from './pages/Favourites';
-import Payments from './pages/Payments';
 import Addresses from './pages/Addresses';
-import Mydetails from './pages/Mydetails';
 import { Profiledata } from './Profiledata';
 
 function Main() {
@@ -18,7 +16,7 @@ function Main() {
         <div className="left_content">
           <img className="p_img" src={item.image}></img>
           <div className="user_details">
-          <p className="p_name">{item.Name}</p>
+          <p className="p_name">{item.Name}</p><br/>
           <span className="p_location">{item.icon} {item.Address}</span>
           </div>
         </div>
@@ -38,9 +36,7 @@ function Main() {
         <Switch>
           <Route path='/Profile/Orders' exact component={Orders} />
           <Route path='/Profile/Favourites' component={Favourites} />
-          <Route path='/Profile/Payments' component={Payments} />
           <Route path='/Profile/Addresses' component={Addresses} />
-          <Route path='/Profile/Mydetails' component={Mydetails} />
         </Switch>
       </Router>
     </>
