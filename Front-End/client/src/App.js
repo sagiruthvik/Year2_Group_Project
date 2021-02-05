@@ -10,6 +10,12 @@ import Problem from './components/pages/Problem'
 import Facts from './components/pages/Facts'
 import Help from './components/pages/Help'
 
+
+import Login from './components/pages/login.js';
+import Signup from './components/pages/signup.js';
+//import Browse from './components/pages/browse.js';
+//import UpdateFood from './components/pages/updateFood.js';
+
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Main from './components/pages/Profilepages/Main';
 function App() {
@@ -28,7 +34,11 @@ function App() {
         <Route path= '/Help' exact component = {Help} />
         <Route path= '/Profile/Orders' exact component = {Main} />
 		{/* <Route path = "/browse" exact component ={Browse} />
-		<Route path = "/add_food" exact component ={addFood} /> */}
+		<Route path = "/add_food" exact component ={addFood} />
+		<Route path = "/add_food" exact component ={UpdateFood} />*/}
+		<Route path= '/signup' exact component = {Signup} />
+		<Route path= '/login' exact component = {Login} />
+		
         
       </Switch>
       </Router>
