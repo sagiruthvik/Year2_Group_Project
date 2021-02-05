@@ -13,6 +13,8 @@ class Browse extends Component {
             foodAvaliable:[]
         }
         this.addFood = this.addFood.bind(this);
+        this.updateFood = this.updateFood.bind(this);
+        this.deleteFood = this.deleteFood.bind(this);
     }
     componentDidMount(){
         UserService.getFood().then((response)=>{
@@ -24,15 +26,21 @@ class Browse extends Component {
     addFood(){
         this.props.history.push("add_food");
     }
-   
-   
-   
+    updateFood(id){
+    this.props.history.push(`/update-food/${id}`);
+    }
+    deleteFood(id){
+        UserService.deleteFood(id).then( res=> {
+            this.setState({food: this.state.foodAvaliable.filter(food => food.id !==id)});
+            this.props.history.push("/browse");
+        });
+    }
    
     render(){
   return (
     <div className= "browseList_background">
     <div className= "browseList">
-        
+
 <Container>
 
 <Row>
@@ -45,12 +53,19 @@ class Browse extends Component {
         <Card.Title> <p>{Food.name}</p></Card.Title>
         <Card.Text><description>{Food.description}</description></Card.Text>
         <Button variant="primary">Add</Button>
+        <button onClick= { () => this.updateFood(Food.id)}>Update</button>
+        <button onClick= { () => this.deleteFood(Food.id)}>Delete</button>
+        
         </Card.Body>
     </Card>
 </Col>
 )}
 </Row>
+
 <button className = "btn btn-primary" onClick={this.addFood}>Add Food</button>
+
+
+
 </Container>
 </div>
 </div>
