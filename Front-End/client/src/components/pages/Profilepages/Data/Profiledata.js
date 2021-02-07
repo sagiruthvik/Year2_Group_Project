@@ -5,7 +5,7 @@ import * as IoIcons from 'react-icons/io';
 import * as GiIcons from 'react-icons/gi';
 import * as MdIcons from 'react-icons/md';
 import * as GoIcons from 'react-icons/go';
-import img from './images/profile.png';
+import img from '../images/profile.png';
 
 export const Profiledata = [
   {
