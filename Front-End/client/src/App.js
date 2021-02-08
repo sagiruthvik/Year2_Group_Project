@@ -19,6 +19,7 @@ import Signup from './components/pages/signup.js';
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Main from './components/pages/Profilepages/Main';
 import TermsConditions from './components/pages/TermsConditions';
+import PrivacyPolicy from './components/pages/PrivacyPolicy';
 function App() {
   
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path= '/Help' exact component = {Help} />
         <Route path= '/Profile/Orders' exact component = {Main} />
         <Route path= '/T&C' exact component = {TermsConditions} />
+        <Route path= '/Ppolicy' exact component = {PrivacyPolicy} />
 		{/* <Route path = "/browse" exact component ={Browse} />
 		<Route path = "/add_food" exact component ={addFood} />
 		<Route path = "/add_food" exact component ={UpdateFood} />*/}
