@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import java.text.ParseException;
 
 @RestController
-@RequestMapping("/api/signup")
+@RequestMapping("/api/v1/signup")
 @AllArgsConstructor
 public class RegistrationController {
 

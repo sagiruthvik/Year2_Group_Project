@@ -6,8 +6,9 @@ import Goal from './components/pages/Aboutpages/Goal'
 import Services_Offered from './components/pages/Aboutpages/Services_Offered'
 import What_Can_You_Do from './components/pages/Aboutpages/What_Can_You_Do'
 import Home from './components/pages/Home'
-import Problem from './components/pages/Problem'
-import Facts from './components/pages/Facts'
+import Problem from './components/pages/Foodwaste/Problem'
+import Facts from './components/pages/Foodwaste/Facts'
+import Contribute from './components/pages/Foodwaste/Contribute'
 import Help from './components/pages/Help'
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path= '/What_Can_You_Do' exact component = {What_Can_You_Do} />
         <Route path= '/Problem' exact component = {Problem} />
         <Route path= '/Facts' exact component = {Facts} />
+        <Route path= '/Contribute' exact component = {Contribute} />
         <Route path= '/Help' exact component = {Help} />
         <Route path= '/Profile/Orders' exact component = {Main} />
         <Route path= '/T&C' exact component = {TermsConditions} />
