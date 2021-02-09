@@ -11,12 +11,19 @@ import java.util.List;
 @RequestMapping("api/v1/users")
 public class UserController {
 
+    private final UserServices userServices;
+
+    @Autowired
+    public UserController(UserServices userServices) {
+        this.userServices = userServices;
+    }
+
     @GetMapping
     public Users getMyUserInfo() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Object userEmail = auth.getPrincipal();
 //        System.out.println("getMyUserInfo Triggered.\n" + userEmail.toString());
-        return (Users) userEmail;
+        return (Users) userServices.loadUserByUsername(userEmail.toString());
     }
 
     //TODO add missing mappings for user model controller.

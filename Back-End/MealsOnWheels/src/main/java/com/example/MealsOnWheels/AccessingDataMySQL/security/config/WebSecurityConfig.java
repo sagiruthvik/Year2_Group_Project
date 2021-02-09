@@ -1,8 +1,9 @@
 package com.example.MealsOnWheels.AccessingDataMySQL.security.config;
 
-import com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserPermission;
-import com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserRoles;
 import com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserServices;
+import com.example.MealsOnWheels.AccessingDataMySQL.jwt.JwtConfig;
+import com.example.MealsOnWheels.AccessingDataMySQL.jwt.JwtTokenVerifier;
+import com.example.MealsOnWheels.AccessingDataMySQL.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +13,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import javax.crypto.SecretKey;
 
 import static com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserPermission.*;
 import static com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserRoles.*;
@@ -26,6 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserServices userServices;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final JwtConfig jwtConfig;
+    private final SecretKey secretKey;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -34,6 +38,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 //                .and()
                 .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig, secretKey))
+                .addFilterAfter(new JwtTokenVerifier(jwtConfig, secretKey), JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers("/api/signup/**").permitAll()
                 .antMatchers("/api/**").hasAnyRole(USER.name(), ADMIN.name())
@@ -43,24 +51,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, "/management/api/**").hasAnyAuthority(ADMIN_WRITE.getPermission())
                 .antMatchers("/management/api/**").hasRole(ADMIN.name())
                 .anyRequest()
-                .authenticated().and()
-                .formLogin()
-                    .loginPage("/login").permitAll()
-                    .defaultSuccessUrl("/menu", true)
-                    .usernameParameter("username")
-                    .passwordParameter("password")
-                .and()
-                .rememberMe()
-                    .rememberMeParameter("remember-me")
-                .and()
-                .logout()
-                    .logoutUrl("/logout")
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-                // disable if csrf enabled and implement post method for it ref : https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/web/server/ServerHttpSecurity.LogoutSpec.html
-                    .clearAuthentication(true)
-                    .invalidateHttpSession(true)
-                    .deleteCookies("JSESSIONID", "remember-me")
-                    .logoutSuccessUrl("/login");
+                .authenticated();
+
+//-----FOR FORM BASED AUTH( NO LONGER NEEDED )-----//
+//                .and()
+//                .formLogin()
+//                    .loginPage("/login").permitAll()
+//                    .defaultSuccessUrl("/menu", true)
+//                    .usernameParameter("username")
+//                    .passwordParameter("password")
+//                .and()
+//                .rememberMe()
+//                    .rememberMeParameter("remember-me")
+//                .and()
+//                .logout()
+//                    .logoutUrl("/logout")
+//                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+//                // disable if csrf enabled and implement post method for it ref : https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/web/server/ServerHttpSecurity.LogoutSpec.html
+//                    .clearAuthentication(true)
+//                    .invalidateHttpSession(true)
+//                    .deleteCookies("JSESSIONID", "remember-me")
+//                    .logoutSuccessUrl("/login");
     }
 
     @Override
