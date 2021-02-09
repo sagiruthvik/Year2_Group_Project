@@ -21,6 +21,7 @@ import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Main from './components/pages/Profilepages/Main';
 import TermsConditions from './components/pages/TermsConditions';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
+import FAQ from './components/pages/FAQ';
 function App() {
   
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path= '/Profile/Orders' exact component = {Main} />
         <Route path= '/T&C' exact component = {TermsConditions} />
         <Route path= '/Ppolicy' exact component = {PrivacyPolicy} />
+        <Route path= '/FAQ' exact component = {FAQ} />
 		{/* <Route path = "/browse" exact component ={Browse} />
 		<Route path = "/add_food" exact component ={addFood} />
 		<Route path = "/add_food" exact component ={UpdateFood} />*/}
