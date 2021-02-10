@@ -9,17 +9,17 @@ import Profile from './pages/Profile'
 
 function Main() {
   return (
-    <>
+    <div className="main_container">
     <Profile />
       <Router>
         <Sidebar />
         <Switch>
           <Route path='/Profile/Orders' exact component={Orders} />
-          <Route path='/Profile/Favourites' component={Favourites} />
-          <Route path='/Profile/Addresses' component={Addresses} />
+          <Route path='/Profile/Favourites' exact component={Favourites} />
+          <Route path='/Profile/Addresses' exact component={Addresses} />
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 

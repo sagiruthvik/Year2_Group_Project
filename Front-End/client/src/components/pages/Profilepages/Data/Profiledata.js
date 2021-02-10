@@ -9,7 +9,9 @@ import img from '../images/profile.png';
 
 export const Profiledata = [
   {
-    Name : "Arya Strak",
+    Name : "Arya Stark",
+    email : "aryastark@gmail.com",
+    ph_no : "1234567890",
     Address : "London",
     image : img,
     icon : <GoIcons.GoLocation />,

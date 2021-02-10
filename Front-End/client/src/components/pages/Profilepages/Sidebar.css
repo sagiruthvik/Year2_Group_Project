@@ -1,16 +1,3 @@
-/* .navbar {
-  background-color: #060b26;
-  height: 80px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-} */
-
-/* .menu-bars {
-  margin-left: 2rem;
-  font-size: 2rem;
-  background: none;
-} */
 
 .sidebar-men {
   /* background-color: #1A1A1D; */
@@ -56,19 +43,6 @@
 .nav-text a:hover {
   background-color: #c3073f;
 }
-
-/* .nav-menu-items {
-  width: 100%;
-} */
-/* 
-.navbar-toggle {
-  background-color: #060b26;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-} */
 
 span {
   margin-left: 16px;

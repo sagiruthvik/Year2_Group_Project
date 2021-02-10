@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+.main_container{
+  background-color: #1A1A1D;
+}
+
 .container{
 display: flex;
 flex-wrap: wrap;
@@ -137,7 +141,6 @@ color: white;
 padding: 40px;
 width: 450px;
 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
-/* border: 1px solid black; */
 border-radius: 10px;
 margin-top: 10px;
 text-align: center;
@@ -256,7 +259,11 @@ flex-direction: row;
 padding: 20px;
 }
 
-.p_img{
+.p_name{
+  font-size: 2.5rem;
+}
+
+/* .p_img{
 width: 150px;
 height: 150px;
 border-radius: 50%;
@@ -267,14 +274,14 @@ border: 5px solid white;
 transition: 0.4s;
 cursor: pointer;
 border: 0px solid #5d001e;
-}
+} */
 
 .user_details{
 display: flex;
 flex-direction: column;
 justify-content: center;
 padding: 10px;
-text-align:right;
+text-align:center
 }
 
 .right_content{
@@ -301,11 +308,69 @@ background-color: #5d001e;
 cursor: pointer;
 background-color:#841035;
 color: white; 
-/* border: 1px solid #5d001e; */
 }
 
 .user_content_details{
 display: flex;
 flex-direction: row;
 padding: 15px;
+}
+
+
+/*-------- Modal -----------*/
+
+.my_modal{
+  background-color:#5d001e;
+  color: white;
+}
+
+.my_modal h1{
+  padding: 10px;
+}
+
+.my_form{
+  padding: 10px;
+  background-color:#9a1750;
+  display: flex;
+  flex-direction: column;
+}
+
+.my_form input{
+  background-color:#1A1A1D;
+  color: white;
+}
+
+.input_email, .input_name, .input_address, .input_number{
+  padding: 20px;
+}
+
+.update_btn{
+border: none;
+color: white;
+padding: 16px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 10px;
+margin: -1px 2px;
+transition-duration: 0.4s;
+border: 1px solid #c3073f;
+border-radius: 5px;
+background-color: #c3073f;
+color: white;
+}
+
+.update_btn:hover{
+cursor: pointer;
+background-color: #9a1750;
+}
+
+.close_btn{
+  color: #9a1750;
+  margin-left: 1200px;
+  padding: 5px;
+}
+
+.close_btn:hover{
+  cursor: pointer;
 }
