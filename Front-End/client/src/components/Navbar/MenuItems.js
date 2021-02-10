@@ -5,12 +5,7 @@ export const MenuItems =[
     cName: "dropdown-link"
  },
  {
-    title: 'Facts About Waste',
-    path: './Facts',
-    cName: 'dropdown-link'
- },
- {
-    title: 'How Can I Contribute?',
+    title: 'Want to help?',
     path: './Contribute',
     cName: 'dropdown-link'
  }

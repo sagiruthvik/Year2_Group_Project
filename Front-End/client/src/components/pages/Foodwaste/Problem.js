@@ -14,6 +14,7 @@ function Problem() {
             <p className='intro'>Hundreds of thousands of tonnes of good food is wasted by the UK food industry every year. At the same time,
                 millions of people are struggling to afford to eat. Our work addresses these two issues by redistributing food,
                 which would otherwise go to waste, to the people who need it most. Find facts and figures on food waste and hunger in the UK below.
+                Our project aims to fight against hunger and to tackle food waste by delivering meals to individuals at home who are unable to purchase or prepare their own meals.
             </p>
             <Divider id='pageDivider'/>
             {/*-----------Fact1---------*/}
@@ -70,9 +71,10 @@ function Problem() {
                     <p className='fact3-right-info'>
                         <b>Everyday waste:</b>
                         <ul>
-                            <li><strong>Bread:</strong> 2.6 million slices every single day! </li>
+                            <li><strong>Bread:</strong> 2,600,000 slices every single day! </li>
                             <li><strong>Potato:</strong> 560,000 every day </li>
-                            <li><strong>Apples:</strong> 100,000 every day </li>
+                            <li><strong>Chicken:</strong> 140,000 every day </li>
+                            <li><strong>Milk:</strong> 270,000 pints every day </li>
                         </ul>
                         <b>Waste by sector:</b>
                         <ul>
