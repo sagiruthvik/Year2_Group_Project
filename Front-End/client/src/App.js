@@ -20,6 +20,7 @@ import Main from './components/pages/Profilepages/Main';
 import TermsConditions from './components/pages/TermsConditions';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import FAQ from './components/pages/FAQ';
+import notFound from './components/pages/Findfood/notFound';
 function App() {
   
   return (
@@ -43,7 +44,7 @@ function App() {
 		<Route path = "/add_food" exact component ={UpdateFood} />*/}
 		<Route path= '/signup' exact component = {Signup} />
 		<Route path= '/login' exact component = {Login} />
-		
+		<Route path= '/notFound' exact component = {notFound} />
         
       </Switch>
       </Router>
