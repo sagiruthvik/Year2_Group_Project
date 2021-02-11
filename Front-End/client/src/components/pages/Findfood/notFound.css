@@ -1,0 +1,31 @@
+
+
+.bg-fundo {
+  background-image: url("/src/img/notFound.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  
+}
+.bg-text {
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0, 0.4); 
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 12%;
+  padding: 10px;
+  text-align: center;
+  
+  
+}
+.footer-down {
+  margin-top: 50%
+  
+}
