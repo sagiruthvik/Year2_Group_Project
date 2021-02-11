@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Button } from './Button'
+import { LoginButton } from './LoginButton'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import Dropdown from './Dropdown'
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons'
+import {SignupButton} from "./SignupButton";
 
 function Navbar() {
 const [click, setClick] = useState(false);
@@ -64,12 +65,19 @@ const onMouseLeave = () => {
                     </Link>
                 </li>
                 <li className= "nav-item">
-                    <Link to ="/Sign-Up" className="navbar_links_mobile" onClick={closeMobileMenu}>
-                        Sign Up
+                    <Link to ="/Signup" className="navbar_links_mobile" onClick={closeMobileMenu}>
+                        Signup
+                    </Link>
+                </li>
+                <li className= "nav-item">
+                    <Link to ="/Login" className="navbar_links_mobile" onClick={closeMobileMenu}>
+                        Login
                     </Link>
                 </li>
             </ul>
-            <Button/>
+            <SignupButton/>
+            <LoginButton/>
+
         </nav>
         </>
     );

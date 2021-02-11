@@ -3,7 +3,17 @@
 }
 
 .signup-button {
+  margin-left: -20px;
+  margin-right: 20px;
+}
+
+.login-button {
+  margin-right: 20px;
+}
+
+.login-button, .signup-button {
   padding: 8px 10px;
+  margin-top: 20px;
   border-radius: 4px;
   outline: none;
   border: none;
@@ -15,7 +25,7 @@
   font-family: "Arvo", sans-serif;
 }
 
-.signup-button:hover {
+.login-button:hover, .signup-button:hover {
   padding: 6px 18px;
   transition: all 0.3s ease-out;
   background-color: transparent;
@@ -25,7 +35,7 @@
 }
 
 @media screen and (max-width: 1420px) {
-  .signup-button {
+  .login-button, .signup-button {
     width: 6.6rem;
     margin-right: 1rem;
   }

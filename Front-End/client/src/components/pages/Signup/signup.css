@@ -1,0 +1,90 @@
+body, html {
+    width: 100%;
+    height: max-content;
+    font-family: Raleway-Regular, sans-serif;
+    background-color: #ebebeb;
+}
+
+.container-signup{
+    width:560px;
+    height:710px;
+    background: white;
+    top: 63%;
+    left: 50%;
+    position:absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding:70px 90px;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+#signupTitle {
+    margin: -40px 0 10px 0px;
+    padding: 0 0 0px;
+    text-align: center;
+    font-size: 30px;
+    font-family: Raleway-Medium, Calibri, serif;
+    line-height: 1.2;
+    width: 100%;
+    color: #555555;
+}
+
+#signupSubHeading {
+    margin-bottom: 3px;
+    padding: 0;
+    font-weight: bold;
+    color: #404040;
+    font-family: Raleway-SemiBold, "Segoe UI Semibold", serif;
+    font-size: 15px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.inputFields {
+    width:100%;
+    margin-bottom:20px;
+}
+
+.inputFields {
+    background: transparent;
+    height:40px;
+    color: black;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.inputFields:focus, .submitButton:focus{
+    outline: none !important;
+    border-color: #474343;
+    border-width: 2px;
+    box-shadow: 0 0 6px #2e2e2e;
+}
+
+.submitButton:hover {
+    box-shadow: 0 0 23px #2e2e2e;
+    background-color: #2ed370;
+    color: black;
+}
+
+.submitButton {
+    color: #555555;
+    width: 40%;
+    align-self: center;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 110px;
+    margin-top: 7px;
+}
+
+#requiredStarLabel {
+    color: #555555;
+    font-style: oblique;
+    font-size: 12px;
+}
+
+#customSignUpFooter {
+    margin-top: 52%;
+}

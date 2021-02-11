@@ -10,9 +10,8 @@ import Problem from './components/pages/Foodwaste/Problem'
 import Contribute from './components/pages/Foodwaste/Contribute'
 import Help from './components/pages/Help'
 
-
-import Login from './components/pages/login.js';
-import Signup from './components/pages/signup.js';
+import Login from './components/pages/Login/login.js';
+import Signup from './components/pages/Signup/signup.js';
 //import Browse from './components/pages/browse.js';
 //import UpdateFood from './components/pages/updateFood.js';
 
