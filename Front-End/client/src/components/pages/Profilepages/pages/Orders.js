@@ -15,7 +15,7 @@ function Orders() {
             <p className="res_add">{item.restaurant_address}</p>
             <p className="order_no">Order{item.order_no}</p>
             <div className="btn">
-            <button className="button">Reorder</button>    <button className="button">Help</button>
+            <button className="button">Reorder</button>   <button className="button">Help</button>
             </div>
               <img src={item.images}></img>
               </div>
