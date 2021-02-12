@@ -23,4 +23,10 @@ export const SidebarData = [
     icon: <FaIcons.FaLocationArrow />,
     cName: 'nav-text'
   },
+  {
+    title: 'Payments',
+    path: '/Profile/Payments',
+    icon: <FaIcons.FaPennyArcade />,
+    cName: 'nav-text'
+  },
 ];

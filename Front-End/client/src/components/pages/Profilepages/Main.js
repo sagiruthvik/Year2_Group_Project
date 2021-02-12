@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Orders from './pages/Orders';
 import Favourites from './pages/Favourites';
 import Addresses from './pages/Addresses';
-import Profile from './pages/Profile'
+import Profile from './pages/Profile';
+import Payments from './pages/Payments';
 
 function Main() {
   return (
@@ -17,6 +18,7 @@ function Main() {
           <Route path='/Profile/Orders' exact component={Orders} />
           <Route path='/Profile/Favourites' exact component={Favourites} />
           <Route path='/Profile/Addresses' exact component={Addresses} />
+          <Route path='/Profile/Payments' exact component={Payments} />
         </Switch>
       </Router>
     </div>
