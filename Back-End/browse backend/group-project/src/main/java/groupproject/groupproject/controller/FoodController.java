@@ -17,7 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import groupproject.groupproject.exceptions.ResourceNotFoundException;
 import groupproject.groupproject.model.Food;
+import groupproject.groupproject.model.Restaurant;
+import groupproject.groupproject.model.UserCart;
 import groupproject.groupproject.repository.FoodRepository;
+import groupproject.groupproject.repository.RestaurantRepository;
+import groupproject.groupproject.repository.UserCartRepository;
 
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -30,11 +34,42 @@ public class FoodController {
 	@Autowired
 	private FoodRepository foodRepository;
 	
+	
+
+	@Autowired
+	private RestaurantRepository restRepository;
+	
+
+	@Autowired
+	private UserCartRepository userCartRepository;
+	
+	
+	//get food 
+	@GetMapping("/browse-restaurants")
+	public List<Restaurant> getRestaurants(){
+		return this.restRepository.findAll();
+	}
+	
+	
+	
+	
+	
+	
 	//get food 
 	@GetMapping("/browse")
 	public List<Food> getFood(){
 		return this.foodRepository.findAll();
 	}
+	
+	// add to user order list
+	@PostMapping("/usercart")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public UserCart addItem(@RequestBody UserCart userCart) {
+		return userCartRepository.save(userCart);
+	}
+	
+	
+	
 	
 	// create menu item
 	@PostMapping("/add_food")
