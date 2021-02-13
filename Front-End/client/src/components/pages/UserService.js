@@ -2,6 +2,19 @@ import axios from 'axios'
 
 const USERS_REST_API_URL = 'http://localhost:8080/api';
 class UserService{
+
+    getRestaurants(){
+        return axios.get(USERS_REST_API_URL+'/browse-restaurants');
+    }
+
+    addCart(userCart){
+
+        return axios.post(USERS_REST_API_URL+'/usercart',userCart);
+    }
+    getCart(){
+        return axios.get(USERS_REST_API_URL+'/get_cart');
+    }
+
     
     getFood(){
         return axios.get(USERS_REST_API_URL+'/browse');

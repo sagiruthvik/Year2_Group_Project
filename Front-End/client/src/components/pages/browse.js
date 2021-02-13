@@ -11,6 +11,7 @@ class Browse extends Component {
 
         this.state = {
             foodAvaliable:[]
+            
         }
         this.addFood = this.addFood.bind(this);
         this.updateFood = this.updateFood.bind(this);
@@ -22,13 +23,25 @@ class Browse extends Component {
         });
     }
     
-   
+
+
+
+
+
+
+
+
+
     addFood(){
         this.props.history.push("add_food");
     }
     updateFood(id){
     this.props.history.push(`/update-food/${id}`);
     }
+    pushtoCart(id){
+        this.props.history.push(`/cart-food/${id}`);
+        }
+
     deleteFood(id){
         UserService.deleteFood(id).then( res=> {
             this.setState({food: this.state.foodAvaliable.filter(food => food.id !==id)});
@@ -43,6 +56,7 @@ class Browse extends Component {
 
 <Container>
 
+
 <Row>
 {this.state.foodAvaliable.map(
     Food =>      
@@ -52,7 +66,7 @@ class Browse extends Component {
         <Card.Body>
         <Card.Title> <p>{Food.name}</p></Card.Title>
         <Card.Text><description>{Food.description}</description></Card.Text>
-        <Button variant="primary">Add</Button>
+        <button onClick= { () => this.pushtoCart(Food.id)}>Add</button>
         <button onClick= { () => this.updateFood(Food.id)}>Update</button>
         <button onClick= { () => this.deleteFood(Food.id)}>Delete</button>
         
@@ -61,6 +75,9 @@ class Browse extends Component {
 </Col>
 )}
 </Row>
+
+
+
 
 <button className = "btn btn-primary" onClick={this.addFood}>Add Food</button>
 
