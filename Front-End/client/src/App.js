@@ -17,6 +17,8 @@ import Signup from './components/pages/signup.js';
 import Browse from './components/pages/browse.js';
 import UpdateFood from './components/pages/updateFood.js';
 import addFood from './components/pages/addFood.js';
+import addCart from './components/pages/addtoCart.js';
+import userCart from './components/pages/userCart.js';
 
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Main from './components/pages/Profilepages/Main';
@@ -49,6 +51,8 @@ function App() {
 		<Route path= '/signup' exact component = {Signup} />
 		<Route path= '/login' exact component = {Login} />
 		<Route path= '/notFound' exact component = {notFound} />
+		<Route path= '/cart-food/:id' exact component = {addCart} />
+		<Route path= '/userCart' exact component = {userCart} />
 		
         
       </Switch>
