@@ -55,7 +55,7 @@ const onMouseLeave = () => {
                     {dropdown && <Dropdown/>}
                 </li>
                 <li className= "nav-item">
-                    <Link to ="/Help" className="navbar_links" onClick={closeMobileMenu}>
+                    <Link to ="/Donate" className="navbar_links" onClick={closeMobileMenu}>
                         Help
                     </Link>
                 </li>
