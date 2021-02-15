@@ -67,9 +67,9 @@ public class Users implements UserDetails {
     @NotNull
     private UserRoles userRole;
 
-    //@NotNull(message = "AddressID cannot be null")
-    @Column(name = "address_id") //TODO Check if null is required here.
-    private Long addressID;
+    @NotNull(message = "Address cannot be null")
+    @Column(name = "address")
+    private String address;
 
     @Column(name = "phone", columnDefinition = "TEXT")
     private String phoneNumber;
@@ -97,8 +97,9 @@ public class Users implements UserDetails {
     private Date updated_at;
 
     public Users(@NotNull(message = "First name cannot be null.") String firstName,
-                 @NotNull(message = "Last name cannot be null.") String lastName,
+                 String lastName,
                  @NotNull(message = "Date Of Birth cannot be null.") Date dateOfBirth,
+                 @NotNull(message = "Address cannot be null.") String address,
                  @NotNull(message = "Email cannot be null.")
                  @Email(message = "Invalid Email Address.") String email,
                  @NotNull(message = "Password cannot be null.") String password,
@@ -107,6 +108,7 @@ public class Users implements UserDetails {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        this.address = address;
         this.email = email;
         this.password = password;
         this.userRole = userRole;
@@ -124,7 +126,7 @@ public class Users implements UserDetails {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", userRole=" + userRole +
-                ", addressID=" + addressID +
+                ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", allergy='" + allergy + '\'' +
                 ", accountVerified=" + accountVerified +

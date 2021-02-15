@@ -18,4 +18,10 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
     @Query("UPDATE Users u " +
             "SET u.accountVerified = TRUE WHERE u.email = ?1")
     int enableUserAccess(String email);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE Users u " +
+            "SET u.userRole = 'ADMIN' WHERE u.id = ?1")
+    int giveAdminAccess(long userID);
 }

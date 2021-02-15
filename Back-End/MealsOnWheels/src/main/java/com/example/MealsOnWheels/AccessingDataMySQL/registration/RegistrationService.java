@@ -4,13 +4,16 @@ import com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserRoles;
 import com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserServices;
 import com.example.MealsOnWheels.AccessingDataMySQL.appuser.Users;
 import com.example.MealsOnWheels.AccessingDataMySQL.email.EmailSender;
+import com.example.MealsOnWheels.AccessingDataMySQL.exception.ApiRequestException;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationToken;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 @Service
 @AllArgsConstructor
@@ -28,10 +31,14 @@ public class RegistrationService {
             throw new IllegalStateException("Email not valid!");
         }
 
-        String token = userServices.signUpUsers(
-                new Users(request.getFirstName(), request.getLastName(), request.getDateOfBirth(), request.getEmail(),
-                        request.getPassword(), UserRoles.USER, request.getPhone(),
-                        request.getAllergy()));
+        String token;
+        try {
+            token = userServices.signUpUsers(
+                    new Users(request.getFirstName(), request.getLastName(), request.getDateOfBirth(), request.getAddress(), request.getEmail(),
+                            request.getPassword(), UserRoles.USER, request.getPhone(), request.getAllergy()));
+        } catch (Exception e) {
+            throw new ApiRequestException("One or more inputs are null/invalid!", e);
+        }
 
         String link = "http://localhost:8080/api/signup/confirm?token=" + token;
         //TODO Re-enable this when ready to deploy...

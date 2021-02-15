@@ -1,7 +1,6 @@
 package com.example.MealsOnWheels.AccessingDataMySQL.appuser;
 
 public enum UserPermission {
-    //TODO add missing permissions.
     USER_READ("user:read"),
     USER_WRITE("user:write"),
     ADMIN_READ("admin:read"),

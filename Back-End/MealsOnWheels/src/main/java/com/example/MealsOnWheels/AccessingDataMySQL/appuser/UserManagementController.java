@@ -1,6 +1,7 @@
 package com.example.MealsOnWheels.AccessingDataMySQL.appuser;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +29,12 @@ public class UserManagementController {
         return userServices.getUserByID(userID);
     }
 
-    //TODO add post method to add new admin users.
+    @PostMapping(path = "/addAdmin/{userID}")
+    public void makeUserAnAdmin(@PathVariable(value = "userID") long userID) {
+        userServices.addNewAdminUser(userID);
+    }
+
+    //Completed add post method to add new admin users.
 
     //TODO add put method to update students and admins users. (below not functioning double check)
 

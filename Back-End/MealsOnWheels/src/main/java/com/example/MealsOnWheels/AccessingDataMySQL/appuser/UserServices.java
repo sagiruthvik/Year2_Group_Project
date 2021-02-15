@@ -1,6 +1,7 @@
 package com.example.MealsOnWheels.AccessingDataMySQL.appuser;
 
 import com.example.MealsOnWheels.AccessingDataMySQL.exception.ApiRequestException;
+import com.example.MealsOnWheels.AccessingDataMySQL.exception.ResourceNotFound;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationToken;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -70,6 +71,13 @@ public class UserServices implements UserDetailsService {
         }
     }
 
+    public void addNewAdminUser(long userID) {
+
+        Users currentUsers = usersRepository.findById(userID).
+                orElseThrow(() -> (new ResourceNotFound(String.format(USER_NOT_FOUND_USER_ID, userID))));
+        usersRepository.giveAdminAccess(currentUsers.getId());
+    }
+
     public int enableUserAccess(String email) {
         return usersRepository.enableUserAccess(email);
     }
@@ -94,7 +102,7 @@ public class UserServices implements UserDetailsService {
 //        existingUser.setAllergy(user.getAllergy());
 //        existingUser.setUsername(user.getUsername());
 //        existingUser.setPassword(user.getPassword());
-//        // TODO : ADD Address ID
+//        // Completed : ADD Address
 //        existingUser.setEmail(user.getEmail());
 //        existingUser.setPhoneNumber(user.getPhoneNumber());
 //        existingUser.setAccountVerified(user.getAccountVerified());

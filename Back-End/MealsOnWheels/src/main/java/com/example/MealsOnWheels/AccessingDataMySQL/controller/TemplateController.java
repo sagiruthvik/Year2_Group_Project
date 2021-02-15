@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class TemplateController {
 
-    // TODO: implement our existing login page design.
     @GetMapping(path = "login")
     public String getLoginView() {
         return "login";

@@ -33,7 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //TODO Config antmatcher to allow permissions based on role. Also enable csrf later during production. Ensure to take X-CSRF-TOKEN.
+        //Completed - Config antmatcher to allow permissions based on role. Also enable csrf later during production.
+        //Ensure to take X-CSRF-TOKEN.
         http
 //                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 //                .and()
@@ -43,10 +44,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig, secretKey))
                 .addFilterAfter(new JwtTokenVerifier(jwtConfig, secretKey), JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/api/signup/**").permitAll()
+                .antMatchers("/api/v1/signup/**").permitAll()
                 .antMatchers("/api/**").hasAnyRole(USER.name(), ADMIN.name())
                 .antMatchers(HttpMethod.GET, "/api/**").hasAnyAuthority(USER_READ.getPermission())
                 .antMatchers(HttpMethod.GET, "/management/api/**").hasAnyAuthority(ADMIN_WRITE.getPermission())
+                .antMatchers(HttpMethod.POST, "/management/api/**").hasAnyAuthority(ADMIN_WRITE.getPermission())
                 .antMatchers(HttpMethod.DELETE, "/management/api/**").hasAnyAuthority(ADMIN_WRITE.getPermission())
                 .antMatchers(HttpMethod.PUT, "/management/api/**").hasAnyAuthority(ADMIN_WRITE.getPermission())
                 .antMatchers("/management/api/**").hasRole(ADMIN.name())
