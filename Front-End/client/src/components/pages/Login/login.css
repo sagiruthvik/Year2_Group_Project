@@ -1,0 +1,84 @@
+body, html {
+    width: 100%;
+    height: max-content;
+    font-family: Raleway-Regular, sans-serif;
+    background-color: #ebebeb;
+}
+
+.container-login{
+    width:560px;
+    height:380px;
+    background: white;
+    top: 46%;
+    left: 50%;
+    position:absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding:70px 90px;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+#loginTitle {
+    margin: -20px 0 10px 0px;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 30px;
+    font-family: Raleway-Medium, Calibri, serif;
+    line-height: 1.2;
+    width: 100%;
+    color: #555555;
+}
+
+#loginSubHeading {
+    margin-bottom: 3px;
+    padding: 0;
+    font-weight:bold;
+    color: #555555;
+    font-family: Raleway-SemiBold, "Segoe UI Semibold", serif;
+    font-size: 15px;
+    line-height: 1.4;
+    text-transform: uppercase;
+
+}
+.inputFields {
+    width:100%;
+    margin-bottom:20px;
+}
+
+.inputFields {
+    background: transparent;
+    height:40px;
+    color: black;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.inputFields:focus, .submitButton:focus{
+    outline: none !important;
+    border-color: #2ed370;
+    border-width: 2px;
+    box-shadow: 0 0 7px #7cc242;
+}
+
+.submitButton:hover {
+    box-shadow: 0 0 20px #7cc242;
+    background-color: #e8ffda;
+}
+
+.submitButton {
+    color: #555555;
+    width: 40%;
+    align-self: center;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 110px;
+    margin-top: 7px;
+}
+
+
+#customFooter {
+    margin-top: 37%;
+}
