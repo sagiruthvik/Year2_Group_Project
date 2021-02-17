@@ -1,4 +1,6 @@
 package com.example.MealsOnWheels.AccessingDataMySQL.appuser;
+import com.example.MealsOnWheels.AccessingDataMySQL.testingProfile.fetchprofiledata;
+import com.example.MealsOnWheels.AccessingDataMySQL.testingProfile.profilemodel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,6 +28,14 @@ public class UserController {
 //        System.out.println("getMyUserInfo Triggered.\n" + userEmail.toString());
         return (Users) userServices.loadUserByUsername(userEmail.toString());
     }
+
+//    @Autowired
+//    com.example.MealsOnWheels.AccessingDataMySQL.testingProfile.fetchprofiledata fetchprofiledata;
+//
+//    @RequestMapping ("myOrdersData")
+//    List<profilemodel> getprofile(){
+//        return fetchprofiledata.findAll();
+//    }
 
     //TODO add missing mappings for user model controller.
 }

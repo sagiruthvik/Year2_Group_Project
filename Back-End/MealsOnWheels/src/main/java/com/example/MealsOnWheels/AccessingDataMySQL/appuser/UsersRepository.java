@@ -24,4 +24,7 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
     @Query("UPDATE Users u " +
             "SET u.userRole = 'ADMIN' WHERE u.id = ?1")
     int giveAdminAccess(long userID);
+
+
+
 }
