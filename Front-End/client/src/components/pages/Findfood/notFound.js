@@ -1,23 +1,25 @@
-
 import React from 'react'
 import Footer from "../../Footer"
 import '../Findfood/notFound.css'
+import img from '../../../img/notFound.jpg'
 
 
 function notFound() {
     return(
-<div className = "bg-fundo">
+<div>
 
-    
+<img className="bg-findfood" src={img}></img>
+
     <div className = "bg-text"> 
-        <h1 >Sorry we are currently unavailable in your area</h1>
+        <h1 className ="unavailable" >Sorry we are currently unavailable in your area</h1>
     </div>   
+    
 
-     <div className ="footer-down">
-         <Footer/>
-     </div>
+     {/* <div className ="footer-down">
         
-     
+     </div> */}
+        
+     <Footer/>
     
 </div>
 
@@ -28,4 +30,3 @@ function notFound() {
 
 
 export default notFound;
-
