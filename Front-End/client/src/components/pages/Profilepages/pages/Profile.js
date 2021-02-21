@@ -8,7 +8,7 @@ function Profile() {
         <>
     {Profiledata.map((item,index)=>{
       return(
-        <div className="profile_details">
+        <div className="profile_details" key={index}>
         <div className="left_content">
           {/* <img className="p_img" src={item.image}></img> */}
           <div className="user_details">

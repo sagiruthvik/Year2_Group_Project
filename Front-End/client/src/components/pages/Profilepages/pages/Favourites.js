@@ -8,7 +8,7 @@ function Favourites() {
     {FavouritesData.map((item,index)=>{
         return(
         // <div className="row">
-        <div className="column">
+        <div className="column" key={index}>
           <div className="card">
             <div className="res_details">
             <p className="res_name">{item.restaurant_name}</p>

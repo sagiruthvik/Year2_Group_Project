@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 // @CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("api/v1/users")
 public class UserController {
@@ -28,14 +29,6 @@ public class UserController {
 //        System.out.println("getMyUserInfo Triggered.\n" + userEmail.toString());
         return (Users) userServices.loadUserByUsername(userEmail.toString());
     }
-
-//    @Autowired
-//    com.example.MealsOnWheels.AccessingDataMySQL.testingProfile.fetchprofiledata fetchprofiledata;
-//
-//    @RequestMapping ("myOrdersData")
-//    List<profilemodel> getprofile(){
-//        return fetchprofiledata.findAll();
-//    }
 
     //TODO add missing mappings for user model controller.
 }
