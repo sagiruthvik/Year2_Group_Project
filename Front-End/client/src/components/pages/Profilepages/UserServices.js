@@ -1,13 +1,13 @@
-import axios from "axios";
+// import axios from "axios";
 
-const ORDERS_REST_API_URL = "localhost:8080/api/v1/users/ordersData";
+// const ORDERS_REST_API_URL = "localhost:8080/api/v1/users/ordersData";
 
-class UserServices{
+// class UserServices{
 
-    getOrders(){
-        axios.get(ORDERS_REST_API_URL);
-    }
+//     getOrders(){
+//         axios.get(ORDERS_REST_API_URL);
+//     }
 
-}
+// }
 
-export default new UserServices();
+// export default new UserServices();

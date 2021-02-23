@@ -4,7 +4,8 @@ import { AddressesData } from '../Data/AddressesData';
 function Payments() {
   return (
     <div className="container">
-    {AddressesData.map((item,index)=>{
+      <h1>Testing Payments</h1>
+    {/* {AddressesData.map((item,index)=>{
         return(
         <div className="column">
           <div className="card_add">
@@ -22,7 +23,7 @@ function Payments() {
          </div>
         </div>
         );
-    })}
+    })} */}
 </div>
   );
 }
