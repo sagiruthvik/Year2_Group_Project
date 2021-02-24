@@ -7,7 +7,7 @@
 
 .donBackround {
   background: #0e101c;
-  height: 90vh;
+  height: 110vh;
   display: flex;
 }
 
@@ -25,8 +25,7 @@
   text-align: center;
 }
 
-textarea,
-input {
+.donInput {
   display: block;
   border-radius: 4px;
   box-sizing: border-box;
@@ -48,8 +47,8 @@ label {
   display: block;
 }
 
-button[type="submit"],
-input[type="submit"] {
+.donSubmit[type="button"],
+.donInput[type="submit"] {
   background: #ec5990;
   color: white;
   font-weight: 100;
@@ -61,35 +60,35 @@ input[type="submit"] {
   font-size: 16px;
 }
 
-button[type="submit"]:hover,
-input[type="submit"]:hover {
+.donSubmit[type="button"]:hover,
+.donInput[type="submit"]:hover {
   background: #bf1650;
 }
 
-button[type="submit"]:active,
-input[type="button"]:active,
-input[type="submit"]:active {
+.donSubmit[type="button"]:active,
+.donInput[type="button"]:active,
+.donInput[type="submit"]:active {
   transition: 0.3s all;
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
 }
 
-input:disabled {
+.donInput:disabled {
   opacity: 0.4;
 }
 
-input[type="button"]:hover {
+.donInput[type="button"]:hover {
   transition: 0.3s all;
 }
 
-button[type="submit"],
-input[type="button"],
-input[type="submit"] {
+.donSubmit[type="button"],
+.donInput[type="button"],
+.donInput[type="submit"] {
   -webkit-appearance: none;
 }
 
-button[type="button"] {
+.donSubmit[type="button"] {
   display: block;
   appearance: none;
   border: none;
@@ -104,7 +103,7 @@ hr {
   margin-top: 30px;
 }
 
-button {
+.donSubmit {
   display: block;
   margin-bottom: 20px;
   text-transform: uppercase;
