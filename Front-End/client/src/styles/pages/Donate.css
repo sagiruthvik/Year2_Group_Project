@@ -11,10 +11,16 @@
   display: flex;
 }
 
-.Ingredient {
+.Ingredient, #DonateMoney {
   margin-left: 6.5rem;
   max-width: 300px;
   background: #0e101c;
+  display: inline-block;
+}
+
+#DonateMoney {
+  margin-left: 33rem;
+  max-width: 500px;
 }
 
 .donHeader {
@@ -116,4 +122,25 @@ hr {
 
 .required_val {
   color: red;
+}
+
+#submitButton {
+  background-color: #35de7b;
+  width: 35%;
+  align-self: center;
+  height: 35px;
+  font-size: 18px;
+  border-radius: 7px;
+  margin-left: 110px;
+  margin-top: 7px;
+}
+
+#submitButton:hover {
+  background-color: #37ff88;
+}
+
+#submitButton:focus{
+  outline: none !important;
+  border-color: white;
+  border-width: 2px;
 }

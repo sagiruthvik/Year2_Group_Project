@@ -8,13 +8,19 @@ import DonationService from '../DonationService'
 
 const Donate = (props) => {
 
-  const [itemName, setItemName] = useState ("")
-  const [expDate, setExpDate] = useState ("")
-  const [dateOfDonation, setDateofDonation] = useState ("")
-  const [companyName, setCompanyName] = useState ("")
-  const [itemType, setItemType] = useState ("")
-  const [file,setFile] = useState("")
+    const [itemName, setItemName] = useState ("")
+    const [expDate, setExpDate] = useState ("")
+    const [dateOfDonation, setDateofDonation] = useState ("")
+    const [companyName, setCompanyName] = useState ("")
+    const [itemType, setItemType] = useState ("")
+    const [file,setFile] = useState("")
 
+    const [donateAs, setDonateAs] = useState ("")
+    const [cardNumber, setCardNumber] = useState ("")
+    const [cardExpirationDate, setCardExpirationDate] = useState ("")
+    const [cardName, setCardName] = useState ("")
+    const [cardCSV, setCardCSV] = useState ("")
+    const [amountToDonate, setAmountToDonate] = useState("")
 
   const {
     register,
@@ -55,6 +61,38 @@ const onChangeFile = (e) => {
   setFile(file);
 }
 
+//Donate Money Methods
+
+const onChangeDonateAs = (e) => {
+    const donateAs = e.target.value;
+    setDonateAs(donateAs);
+}
+
+const onChangeCardName = (e) => {
+    const cardName = e.target.value;
+    setCardName(cardName);
+}
+
+const onChangeCardNumber = (e) => {
+    const cardNumber = e.target.value;
+    setCardNumber(cardNumber);
+}
+
+const onChangeCardExpirationDAte = (e) => {
+    const cardExpirationDate = e.target.value;
+    setCardExpirationDate(cardExpirationDate);
+}
+
+const onChangeCardCSV = (e) => {
+    const cardCSV = e.target.value;
+    setCardCSV(cardCSV);
+}
+
+const onChangeAmountToDonate = (e) => {
+    const amountToDonate = e.target.value;
+    setAmountToDonate(amountToDonate);
+}
+
 const onSubmit = (e) => {
   e.preventDefault();
   
@@ -62,6 +100,15 @@ const onSubmit = (e) => {
     (response) => {
     }
   )
+}
+
+const onSubmitMoney = (e) => {
+    e.preventDefault();
+
+    DonationService.DonateMoney(donateAs, cardNumber, cardName, cardExpirationDate, cardCSV, amountToDonate).then(
+        (response) => {
+        }
+    )
 }
 
 return (
@@ -133,6 +180,58 @@ return (
                  
               {/* ref={register({ required: true })} */}
            </form>
+
+            {/*DONATE MONEY FORM*/}
+
+            <form id="DonateMoney" onSubmit={onSubmit}>
+
+                <h1 className = "donHeader">Donate Money Today</h1>
+                <label>Donate As:</label>
+                <input
+                    className = "donInput"
+                    name="donateAs"
+                    onChange={onChangeDonateAs}
+                    value= {donateAs}
+                    ref={register({ required: true, minLength: 2, maxLength:20 })} />
+                <ErrorMessage error={errors.donateAs} />
+                <label>Name On Card:</label>
+                <input
+                    className = "donInput"
+                    name="cardName"
+                    onChange={onChangeCardName}
+                    value= {cardName}
+                    ref={register({ required: true, minLength: 16, maxLength:20 })} />
+                <ErrorMessage error={errors.cardName} />
+                <label>Card Number:</label>
+                <input
+                    className = "donInput"
+                    name="cardNumber"
+                    onChange={onChangeCardNumber}
+                    value= {cardNumber}
+                    ref={register({ required: true, minLength: 2, maxLength:16 })} />
+                <ErrorMessage error={errors.cardNumber} />
+                <label>Expiration Date:</label>
+                <input
+                    className = "donInput"
+                    name="cardExpirationDate"
+                    onChange={onChangeCardExpirationDAte}
+                    value= {cardExpirationDate}
+                    ref={register({ required: true, pattern:/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/})} />
+                <ErrorMessage error={errors.cardExpirationDate} />
+                <label>Amount:</label>
+                <input
+                    className = "donInput"
+                    name="amountToDonate"
+                    onChange={onChangeAmountToDonate}
+                    value= {amountToDonate}
+                    ref={register({ required: true, minLength: 2, maxLength:20 })} />
+                <ErrorMessage error={errors.amountToDonate} />
+                <button id={"submitButton"}
+                    className = "DonSubmit"
+                    onClick={onSubmitMoney}>
+                    Submit
+                </button>
+            </form>
         </div>
      </div >
      <Footer/>

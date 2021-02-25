@@ -16,9 +16,20 @@ const Donation = (itemName, expDate, dateOfDonation, companyName, itemType, file
 
 }
 
-export default Donation
+const DonateMoney = (donateAs, cardNumber, cardName, cardExpirationDate, cardCSV, amountToDonate) => {
+    return axios
+        .post(DONATION_REST_API_URL + "DonateMoney", {
+            donateAs: donateAs,
+            cardNumber: cardNumber,
+            cardName: cardName,
+            cardExpirationDate: cardExpirationDate,
+            cardCSV: cardCSV,
+            amountToDonate: amountToDonate
+        });
 
+}
 
+export default {Donation, DonateMoney};
 
 
 
