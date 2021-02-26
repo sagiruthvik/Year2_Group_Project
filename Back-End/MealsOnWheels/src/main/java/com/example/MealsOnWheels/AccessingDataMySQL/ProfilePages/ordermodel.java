@@ -1,4 +1,4 @@
-package com.example.MealsOnWheels.AccessingDataMySQL.testingProfile;
+package com.example.MealsOnWheels.AccessingDataMySQL.ProfilePages;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "Orders")
-public class profilemodel {
+public class ordermodel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,12 +51,12 @@ public class profilemodel {
     @Column(name = "OrderDate")
     private Date OrderDate;
 
-    public profilemodel(@NotNull(message = "Order Number cannot be null.") Integer orderNumber,
-                        @NotNull(message = "OrderPrice cannot be null.") Integer orderPrice,
-                        @NotNull(message = "Order Quantity cannot be null.") Integer orderQuantity,
-                        @NotNull(message = "Order Name cannot be null.") String orderName,
-                        @NotNull(message = "Restaurant Name cannot be null.") String orderRestaurantName,
-                        String orderRestaurantAddress, String orderDeliveryDate) {
+    public ordermodel(@NotNull(message = "Order Number cannot be null.") Integer orderNumber,
+                      @NotNull(message = "OrderPrice cannot be null.") Integer orderPrice,
+                      @NotNull(message = "Order Quantity cannot be null.") Integer orderQuantity,
+                      @NotNull(message = "Order Name cannot be null.") String orderName,
+                      @NotNull(message = "Restaurant Name cannot be null.") String orderRestaurantName,
+                      String orderRestaurantAddress, String orderDeliveryDate) {
         OrderNumber = orderNumber;
         OrderPrice = orderPrice;
         OrderQuantity = orderQuantity;

@@ -12,7 +12,7 @@ export default class Orders extends Component {
   }
 
   componentDidMount(){
-    const access_token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQGIuY29tIiwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfVVNFUiJ9LHsiYXV0aG9yaXR5IjoidXNlcjpyZWFkIn1dLCJpYXQiOjE2MTM1NjQ2MzksImV4cCI6MTYxNDEwNTAwMH0.ApmMjNM-gMdQKRk8HoG44KF2DrNgfmJXg_q1FS89loIUcMZXuso0aJ-jcWh1SuhABhcqJadx00o0T3VeiR8OGQ';
+    const access_token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQGIuY29tIiwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfVVNFUiJ9LHsiYXV0aG9yaXR5IjoidXNlcjpyZWFkIn1dLCJpYXQiOjE2MTQxNjI2NTUsImV4cCI6MTYxNDcwOTgwMH0.gxNoRg5V5I3XGPwpMRhZyfNs5aZWGZd1W0ycEs-G0vL2fB9pRrQZhlYMVnG1x9b7WJEYPkfd3ad7DQCnZuQVIw';
     const api = 'http://localhost:8080/api/v1/users/ordersData';
 
     axios.interceptors.request.use(
@@ -40,8 +40,8 @@ export default class Orders extends Component {
 
     if(!isloaded){
       return(
-        <div>
-          Data Isnt loaded
+        <div className="container">
+          Loading.....
         </div>
       )
     }

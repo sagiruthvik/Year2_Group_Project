@@ -1,4 +1,4 @@
-package com.example.MealsOnWheels.AccessingDataMySQL.testingProfile;
+package com.example.MealsOnWheels.AccessingDataMySQL.ProfilePages;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,16 +13,23 @@ import java.util.List;
 @RequestMapping("api/v1/users")
 public class profilecontroller{
 
-    private final fetchprofiledata profiledata;
+    private final fetchorderdata orderdata;
+    private final fetchfavouritedata favdata;
 
     @Autowired
-    public profilecontroller(fetchprofiledata profiledata) {
-        this.profiledata = profiledata;
+    public profilecontroller(fetchorderdata orderdata, fetchfavouritedata favdata) {
+        this.orderdata = orderdata;
+        this.favdata = favdata;
     }
 
     @GetMapping(path = "ordersData")
-    public List<profilemodel> getprofile(){
-        return profiledata.findAll();
+    public List<ordermodel> getorderdata(){
+        return orderdata.findAll();
     }
+
+    @GetMapping(path = "favData")
+    public List<favouritemodel> getfavdata() {return favdata.findAll(); }
+
+
 
 }
