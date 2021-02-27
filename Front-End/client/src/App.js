@@ -26,6 +26,7 @@ import TermsConditions from './components/pages/TermsConditions';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import FAQ from './components/pages/FAQ';
 import notFound from './components/pages/Findfood/notFound';
+import found from './components/pages/Findfood/found';
 function App() {
   
   return (
@@ -51,6 +52,7 @@ function App() {
 		<Route path= '/signup' exact component = {Signup} />
 		<Route path= '/login' exact component = {Login} />
 		<Route path= '/notFound' exact component = {notFound} />
+    <Route path= '/found' exact component = {found} />
 		{/* <Route path= '/cart-food/:id' exact component = {addCart} />
 		<Route path= '/userCart' exact component = {userCart} /> */}
 		
