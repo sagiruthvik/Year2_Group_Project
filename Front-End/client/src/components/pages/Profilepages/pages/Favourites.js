@@ -47,7 +47,7 @@ export default class Favourites extends Component {
     if(!isloaded){
       return(
         <div className="container">
-          Loading....
+          <div class="loader"></div>
         </div>
       )
     }

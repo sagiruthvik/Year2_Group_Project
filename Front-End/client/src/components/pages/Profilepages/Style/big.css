@@ -376,3 +376,21 @@ background-color: #9a1750;
 .close_btn:hover{
   cursor: pointer;
 }
+
+
+/* ------------ Loading... ------------- */
+
+.loader {
+  border: 16px solid #c3073f; /* Light grey */
+  border-top: 16px solid #9a1750; /* Blue */
+  border-radius:50%;
+  width: 60px;
+  height: 60px;
+  margin-left: 450px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -15,11 +15,13 @@ public class profilecontroller{
 
     private final fetchorderdata orderdata;
     private final fetchfavouritedata favdata;
+    private final fetchaddressdata addressdata;
 
     @Autowired
-    public profilecontroller(fetchorderdata orderdata, fetchfavouritedata favdata) {
+    public profilecontroller(fetchorderdata orderdata, fetchfavouritedata favdata, fetchaddressdata addressdata) {
         this.orderdata = orderdata;
         this.favdata = favdata;
+        this.addressdata = addressdata;
     }
 
     @GetMapping(path = "ordersData")
@@ -30,6 +32,6 @@ public class profilecontroller{
     @GetMapping(path = "favData")
     public List<favouritemodel> getfavdata() {return favdata.findAll(); }
 
-
-
+    @GetMapping(path = "addressData")
+    public List<addressmodel> getaddressdata(){ return addressdata.findAll(); }
 }

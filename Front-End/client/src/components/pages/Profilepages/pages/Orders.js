@@ -41,7 +41,7 @@ export default class Orders extends Component {
     if(!isloaded){
       return(
         <div className="container">
-          Loading.....
+          <div class="loader"></div>
         </div>
       )
     }
