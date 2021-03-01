@@ -28,7 +28,6 @@ import FAQ from './components/pages/FAQ';
 import notFound from './components/pages/Findfood/notFound';
 import found from './components/pages/Findfood/found';
 function App() {
-  
   return (
       <Router>
         <Navbar/>

@@ -11,7 +11,11 @@
   margin-right: 20px;
 }
 
-.login-button, .signup-button {
+.logout-button {
+  margin-right: 20px;
+}
+
+.login-button, .signup-button, .logout-button {
   padding: 8px 10px;
   margin-top: 20px;
   border-radius: 4px;
@@ -25,7 +29,7 @@
   font-family: "Arvo", sans-serif;
 }
 
-.login-button:hover, .signup-button:hover {
+.login-button:hover, .signup-button:hover, .logout-button:hover {
   padding: 6px 18px;
   transition: all 0.3s ease-out;
   background-color: transparent;
@@ -35,7 +39,7 @@
 }
 
 @media screen and (max-width: 1420px) {
-  .login-button, .signup-button {
+  .login-button, .signup-button, .logout-button {
     width: 6.6rem;
     margin-right: 1rem;
   }

@@ -21,7 +21,7 @@ const Login = () => {
             console.log(response);
             if (response.headers.authorization) {
                 localStorage.setItem("token", JSON.stringify(response.headers.authorization));
-                localStorage.setItem("logedIn", "true");
+                localStorage.setItem("loggedIn", "true");
                 return window.location = "/";
             }
         })
