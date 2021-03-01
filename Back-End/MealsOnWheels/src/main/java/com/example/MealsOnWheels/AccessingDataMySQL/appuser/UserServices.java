@@ -41,7 +41,7 @@ public class UserServices implements UserDetailsService {
                 throw new IllegalStateException("Email already taken and verified, try Logging In.");
             } else {
                 if (confirmationTokenService.checkIfValidTokenExist(currentUser.get())){
-                    throw new IllegalStateException("A valid token already exists, verify it.");
+                    throw new IllegalStateException("Email Taken - A valid token already exists, verify it.");
                 } else {
                     String newToken = UUID.randomUUID().toString();
 

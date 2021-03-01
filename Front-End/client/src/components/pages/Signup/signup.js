@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 import Footer from "../../Footer";
 import '../Signup/signup.css';
 import axios from "axios";
+import Alert from 'react-bootstrap/Alert';
 
 const Signup = () => {
     const[firstName, setFirstName] = useState('');
@@ -13,6 +14,8 @@ const Signup = () => {
     const[address, setAddress] = useState('');
     const[phone, setPhone] = useState(null);
     const[allergy, setAllergy] = useState(null);
+    const[errorValue, setErrorValue] = useState('');
+    const[errorPresent, setErrorPresent] = useState(false);
     // const[redirect, setRedirect] = useState(false);
 
     const submit = async (e) => {
@@ -32,7 +35,10 @@ const Signup = () => {
                 if(response.status === 200) {
                     return window.location = "/Login";
                 }
-        })
+        }).catch(err => {
+            setErrorValue(JSON.stringify(err.response.data.message));
+            setErrorPresent(true);
+        });
 
         // await fetch('http://localhost:8080/api/v1/signup/', {
         //     method: 'POST',
@@ -80,7 +86,7 @@ const Signup = () => {
                        onChange={e => setEmail(e.target.value)}
                 />
                 <p id="signupSubHeading">Password*</p>
-                <input className="inputFields" type="password" required
+                <input className="inputFields" type="password" required minLength={6} maxLength={32}
                        onChange={e => setPassword(e.target.value)}
                 />
                 <p id="signupSubHeading">Address*</p>
@@ -95,6 +101,13 @@ const Signup = () => {
                 <input className="inputFields" type="text"
                        onChange={e => setAllergy(e.target.value)}
                 />
+                <div>
+                    {errorPresent
+                        ? <Alert variant="danger" style={{textAlign: "center", marginTop: "0px", color: "red",
+                        fontSize: "17px", marginLeft: "-20%", marginRight: "-20%", textTransform: "none"}}>Error : {errorValue}</Alert>
+                        : <Alert variant="success"/>
+                    }
+                </div>
                 <button className="submitButton" type="submit">Submit</button>
             </form>
         </div>
