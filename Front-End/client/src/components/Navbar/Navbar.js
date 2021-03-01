@@ -111,7 +111,8 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/Profile/Orders" className="navbar_links" onClick={closeMobileMenu} style={{display: "none"}} >
+                            <Link to="/Profile/Orders" className="navbar_links" onClick={closeMobileMenu}
+                                  style={{display: "none"}}>
                                 Profile
                             </Link>
                         </li>

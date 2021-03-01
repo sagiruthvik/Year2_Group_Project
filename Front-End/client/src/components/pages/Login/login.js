@@ -6,10 +6,11 @@ import axios from "axios";
 const Login = () => {
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
+    const[isLoading, setIsLoading] = useState(false);
 
     const submit = async (e) => {
+        setIsLoading(true)
         e.preventDefault();
-
         console.log(JSON.stringify({
             username, password
         }))
@@ -26,6 +27,10 @@ const Login = () => {
             }
         })
         console.log(content);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 500)
+
     }
 
     return (
@@ -39,14 +44,18 @@ const Login = () => {
                 />
                 <p id="loginSubHeading">Password</p>
                 <input className="inputFields" type="password" required
-                    onChange={e => setPassword(e.target.value)}
+                       onChange={e => setPassword(e.target.value)}
                 />
-                <button className="submitButton" type="submit">Login</button>
-            </form>
+                <button className="submitButton" type="submit" disabled={isLoading}>
+                    {isLoading && <i class="fas fa-spinner fa-pulse"/>}
+                    {!isLoading && <p>Login</p>}
+                </button>
+        </form>
         </div>
         <Footer/>
         </body>
     );
+
 }
 
 export default Login;
