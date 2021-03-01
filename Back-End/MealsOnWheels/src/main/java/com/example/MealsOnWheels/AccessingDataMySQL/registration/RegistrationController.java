@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.text.ParseException;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/signup")
 @AllArgsConstructor
@@ -15,8 +16,8 @@ public class RegistrationController {
     private final RegistrationService registrationService;
 
     @PostMapping
-    public String register(@RequestBody RegistrationRequest request) {
-        return registrationService.register(request);
+    public void register(@RequestBody RegistrationRequest request) {
+        registrationService.register(request);
     }
 
     @GetMapping(path = "/confirm")

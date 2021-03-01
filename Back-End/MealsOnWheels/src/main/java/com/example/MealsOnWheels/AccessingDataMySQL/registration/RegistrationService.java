@@ -24,7 +24,7 @@ public class RegistrationService {
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
 
-    public String register(RegistrationRequest request) {
+    public void register(RegistrationRequest request) {
         boolean isValidEmail = emailValidators.test(request.getEmail());
 
         if (!isValidEmail) {
@@ -36,8 +36,8 @@ public class RegistrationService {
             token = userServices.signUpUsers(
                     new Users(request.getFirstName(), request.getLastName(), request.getDateOfBirth(), request.getAddress(), request.getEmail(),
                             request.getPassword(), UserRoles.USER, request.getPhone(), request.getAllergy()));
-        } catch (Exception e) {
-            throw new ApiRequestException("One or more inputs are null/invalid!", e);
+        } catch (IllegalStateException e) {
+            throw new ApiRequestException(e.getMessage());
         }
 
         String link = "http://localhost:8080/api/signup/confirm?token=" + token;
@@ -46,7 +46,7 @@ public class RegistrationService {
 //                request.getEmail(),
 //                buildEmail(request.getFirstName(),
 //                link));
-        return token;
+
     }
 
     @Transactional
