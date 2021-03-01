@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const DONATION_REST_API_URL = 'http://localhost:8080//api/donation';
+const DONATION_REST_API_URL = 'http://localhost:8080/api/donation';
 
 const Donation = (itemName, expDate, dateOfDonation, companyName, itemType, fileName) => {
     return axios

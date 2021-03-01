@@ -1,25 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../Login/login.css';
 import Footer from "../../Footer";
+import axios from "axios";
 
-function login() {
+const Login = () => {
+    const[username, setUsername] = useState('');
+    const[password, setPassword] = useState('');
+
+    const submit = async (e) => {
+        e.preventDefault();
+
+        console.log(JSON.stringify({
+            username, password
+        }))
+
+        const content = axios.post('http://localhost:8080/login', {
+            username,
+            password
+        }, { withCredentials: true }).then(function (response) {
+            console.log(response);
+            if (response.headers.authorization) {
+                localStorage.setItem("token", JSON.stringify(response.headers.authorization));
+                localStorage.setItem("logedIn", "true");
+                return window.location = "/";
+            }
+        })
+        console.log(content);
+    }
+
     return (
-        <body>
+        <body id={"customLoginBody"}>
         <div className="container-login">
             <h1 id="loginTitle">Account Login</h1>
-            <form>
+            <form onSubmit={submit}>
                 <p id="loginSubHeading">Email Address</p>
-                <input className="inputFields" type="text" name="username" />
+                <input className="inputFields" type="email" required
+                       onChange={e => setUsername(e.target.value)}
+                />
                 <p id="loginSubHeading">Password</p>
-                <input className="inputFields" type="text" name="password"/>
-                <input className="submitButton" type="submit" name="login" value="Login"/>
+                <input className="inputFields" type="password" required
+                    onChange={e => setPassword(e.target.value)}
+                />
+                <button className="submitButton" type="submit">Login</button>
             </form>
         </div>
-        <div id="customFooter">
-            <Footer/>
-        </div>
+        <Footer/>
         </body>
     );
 }
 
-export default login;
+export default Login;
