@@ -42,10 +42,10 @@ public class RegistrationService {
 
         String link = "http://localhost:8080/api/signup/confirm?token=" + token;
         //TODO Re-enable this when ready to deploy...
-//        emailSender.send(
-//                request.getEmail(),
-//                buildEmail(request.getFirstName(),
-//                link));
+        emailSender.send(
+                request.getEmail(),
+                buildEmail(request.getFirstName(),
+                link));
 
     }
 
