@@ -50,7 +50,7 @@ public class UserServices implements UserDetailsService {
 
                     confirmationTokenService.saveConfirmationToken(newConfirmationToken);
 
-                    return "NEW TOKEN : " + newToken;
+                    return newToken;
                 }
             }
         } else {

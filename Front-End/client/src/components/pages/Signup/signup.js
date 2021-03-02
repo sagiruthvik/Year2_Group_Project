@@ -16,9 +16,11 @@ const Signup = () => {
     const[allergy, setAllergy] = useState(null);
     const[errorValue, setErrorValue] = useState('');
     const[errorPresent, setErrorPresent] = useState(false);
+    const[isLoading, setIsLoading] = useState(false);
     // const[redirect, setRedirect] = useState(false);
 
     const submit = async (e) => {
+        setIsLoading(true)
         e.preventDefault();
 
         axios.post('http://localhost:8080/api/v1/signup/', {
@@ -32,6 +34,7 @@ const Signup = () => {
             allergy
         }).then(function (response) {
                 console.log(response);
+                setIsLoading(false);
                 if(response.status === 200) {
                     return window.location = "/Login";
                 }
@@ -39,28 +42,9 @@ const Signup = () => {
             setErrorValue(JSON.stringify(err.response.data.message));
             setErrorPresent(true);
         });
-
-        // await fetch('http://localhost:8080/api/v1/signup/', {
-        //     method: 'POST',
-        //     headers: {'Content-Type': 'application/json'},
-        //     body: JSON.stringify({
-        //         firstName,
-        //         lastName,
-        //         dateOfBirth,
-        //         email,
-        //         password,
-        //         address,
-        //         phone,
-        //         allergy
-        //     })
-        // })
-
-        // setRedirect(true);
-        //
-        // if(redirect) {
-        //     return <Redirect to={"/Login"}/>
-        // }
-
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 500)
     }
 
     return (
@@ -108,7 +92,11 @@ const Signup = () => {
                         : <Alert variant="success"/>
                     }
                 </div>
-                <button className="submitButton" type="submit">Submit</button>
+                {/*<button className="submitButton" type="submit">Submit</button>*/}
+                <button className="submitButton" type="submit" disabled={isLoading}>
+                    {isLoading && <i class="fas fa-spinner fa-pulse"/>}
+                    {!isLoading && <p>Submit</p>}
+                </button>
             </form>
         </div>
         <div id="customSignUpFooter">

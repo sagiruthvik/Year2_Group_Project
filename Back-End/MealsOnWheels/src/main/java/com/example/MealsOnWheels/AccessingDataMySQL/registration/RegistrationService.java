@@ -62,7 +62,7 @@ public class RegistrationService {
         LocalDateTime expiredAt = confirmationToken.getExpiresAt();
 
         if(expiredAt.isBefore(LocalDateTime.now())) {
-            throw new IllegalStateException("Token already expired, request a new one.");
+            throw new IllegalStateException("Token already expired, signup again.");
         }
 
         confirmationTokenService.setConfirmedAt(token);
