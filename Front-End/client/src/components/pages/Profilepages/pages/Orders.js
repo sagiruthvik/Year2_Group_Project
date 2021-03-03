@@ -12,12 +12,14 @@ export default class Orders extends Component {
   }
 
   componentDidMount(){
-    const access_token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQGIuY29tIiwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfVVNFUiJ9LHsiYXV0aG9yaXR5IjoidXNlcjpyZWFkIn1dLCJpYXQiOjE2MTQxNjI2NTUsImV4cCI6MTYxNDcwOTgwMH0.gxNoRg5V5I3XGPwpMRhZyfNs5aZWGZd1W0ycEs-G0vL2fB9pRrQZhlYMVnG1x9b7WJEYPkfd3ad7DQCnZuQVIw';
+    const access_token1 = localStorage.getItem('token');
+    const access_token = access_token1.substring(1, access_token1.length-1);
+    console.log("Orders Token " + access_token);
     const api = 'http://localhost:8080/api/v1/users/ordersData';
 
     axios.interceptors.request.use(
       config => {
-        config.headers.authorization = `Bearer ${access_token}`;
+        config.headers.authorization = access_token;
         return config;
       },
       error =>{

@@ -1,5 +1,6 @@
 package com.example.MealsOnWheels.AccessingDataMySQL.ProfilePages;
 
+import com.example.MealsOnWheels.AccessingDataMySQL.appuser.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +17,14 @@ public class profilecontroller{
     private final fetchorderdata orderdata;
     private final fetchfavouritedata favdata;
     private final fetchaddressdata addressdata;
+    private final fetchusersdata userdata;
 
     @Autowired
-    public profilecontroller(fetchorderdata orderdata, fetchfavouritedata favdata, fetchaddressdata addressdata) {
+    public profilecontroller(fetchorderdata orderdata, fetchfavouritedata favdata, fetchaddressdata addressdata, fetchusersdata userdata) {
         this.orderdata = orderdata;
         this.favdata = favdata;
         this.addressdata = addressdata;
+        this.userdata = userdata;
     }
 
     @GetMapping(path = "ordersData")
@@ -34,4 +37,8 @@ public class profilecontroller{
 
     @GetMapping(path = "addressData")
     public List<addressmodel> getaddressdata(){ return addressdata.findAll(); }
+
+    @GetMapping(path = "userData")
+    public List<Users> getuserdata(){return userdata.findAll(); }
+
 }
