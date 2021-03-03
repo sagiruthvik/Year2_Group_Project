@@ -1,6 +1,10 @@
 import React from 'react'
 import foundService from '../Findfood/foundService'
 import img from '../Findfood/CardPic.jpg'
+import '../Findfood/found-card.css'
+import '../Findfood/found-appearance.css'
+import Footer from "../../Footer"
+import img1 from '../../../img/notFound.jpg'
 class found extends React.Component {
 
     constructor(props){
@@ -23,15 +27,15 @@ class found extends React.Component {
     render(){
         return(
                         
-            <div >
-                <div >
-                    <div >
-
-                    </div>
-
-                    <div>
+            <div className = "found-bg" >
+                <img className = "found-img-bg" src={img1}></img>
+                 
+                <div className = "found-title">
+                        <h1>Restaurantes Found in your Area</h1>
+                </div>
+                   <div className = "Card-location">
                         {this.state.restaurantes.map(
-                            restaurant =>
+                            restaurant  =>
                             <div className = "Card-container">
 
                                 <div className = "Card-image"><img src={img}></img> </div>
@@ -51,24 +55,12 @@ class found extends React.Component {
                           
                             
                         )}
-
+                        
                     </div>
-                </div>
-
+                   {/* <div className = "found-footer"><Footer/></div>*/} 
+                    
+                    
             </div>
-            
-
-           
-
-
-
-
-
-
-
-
-
-
             
         )
 
