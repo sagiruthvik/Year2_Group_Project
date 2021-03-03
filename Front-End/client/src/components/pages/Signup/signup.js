@@ -48,10 +48,12 @@ const Signup = () => {
     }
 
     return (
-        <body id={"customSignUpBody"}>
+        <div>
+        <div className = "logBackround">
+        {/* <body id={"customSignUpBody"}> */}
         <div className="container-signup">
             <h1 id="signupTitle">Register Account</h1>
-            <form onSubmit={submit}>
+            <form className = "userForm" onSubmit={submit}>
                 <a id="requiredStarLabel">(*) = Field is required.</a>
                 <p id="signupSubHeading" style={{marginTop: "10px"}}>First Name*</p>
                 <input className="inputFields" type="text" required
@@ -100,9 +102,11 @@ const Signup = () => {
             </form>
         </div>
         <div id="customSignUpFooter">
-            <Footer/>
         </div>
-        </body>
+        
+        </div>
+        <Footer/>
+        </div>
     );
 }
 

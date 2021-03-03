@@ -36,10 +36,13 @@ const Login = () => {
     }
 
     return (
-        <body id={"customLoginBody"}>
-        <div className="container-login">
-            <h1 id="loginTitle">Account Login</h1>
-            <form onSubmit={submit}>
+        <div>
+        <div className = "logBackround">
+            <div className = "login">
+        {/* <body id={"customLoginBody"}> */}
+        
+            <h1 className= "logTitle" id="loginTitle">Account Login</h1>
+            <form className= "userForm" onSubmit={submit}>
                 <p id="loginSubHeading">Email Address</p>
                 <input className="inputFields" type="email" required
                        onChange={e => setUsername(e.target.value)}
@@ -55,14 +58,18 @@ const Login = () => {
                         : <Alert variant="success"/>
                     }
                 </div>
-                <button className="submitButton" type="submit" disabled={isLoading}>
+                <button className="logButton" type="submit" disabled={isLoading}>
                     {isLoading && <i class="fas fa-spinner fa-pulse"/>}
                     {!isLoading && <p>Login</p>}
                 </button>
         </form>
+        
+        {/* </body> */}
+        </div>
+        
         </div>
         <Footer/>
-        </body>
+        </div>
     );
 
 }
