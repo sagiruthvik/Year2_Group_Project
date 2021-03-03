@@ -26,17 +26,13 @@ class found extends React.Component {
 
     render(){
         return(
-                        
-            <div className = "found-bg">
-
-                
-                
-                 <div className = "found-title">
+            <div>       
+                <div className = "found-bg">
+ 
+                    <div className = "found-title">
                         <h1>Restaurantes Found in your Area</h1>
-                </div>
-                
-                 
-               
+                        
+                    </div>
                    <div className = "Card-location">
                         {this.state.restaurantes.map(
                             restaurant  =>
@@ -61,9 +57,10 @@ class found extends React.Component {
                         )}
                         
                     </div>
-                    <div className = "found-footer"><Footer/></div>
+                   
                     
-                    
+                </div> 
+                    <Footer/>
             </div>
             
         )

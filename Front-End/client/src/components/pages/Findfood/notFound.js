@@ -15,9 +15,7 @@ function notFound() {
     </div>   
     
 
-     {/* <div className ="footer-down">
-        
-     </div> */}
+    
         
      <Footer/>
     
