@@ -3,9 +3,9 @@ import axios from 'axios'
 const USERS_REST_API_URL = 'http://localhost:8080/api';
 class UserService{
 
-    getRestaurants(){
-        return axios.get(USERS_REST_API_URL+'/browse-restaurants');
-    }
+    // getRestaurants(){
+    //     return axios.get(USERS_REST_API_URL+'/browse-restaurants');
+    // }
 
     addCart(userCart){
 
@@ -14,6 +14,16 @@ class UserService{
     getCart(){
         return axios.get(USERS_REST_API_URL+'/get_cart');
     }
+
+
+    deleteCart(id){
+        return axios.delete(USERS_REST_API_URL + '/usercart/' + id);
+    }
+
+    checkout(){
+        return axios.delete(USERS_REST_API_URL + '/checkout');
+    }
+
 
     
     getFood(){
