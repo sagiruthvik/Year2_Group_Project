@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {Card, Container,Row,Col} from "react-bootstrap";
-import {Button} from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import UserService from './UserService.js';
+
 
 
 class Browse extends Component {
@@ -49,17 +48,53 @@ class Browse extends Component {
         });
     }
    
+
+
+
     render(){
   return (
     <div className= "browseList_background">
     <div className= "browseList">
 
-<Container>
+    {this.state.foodAvaliable.map(
+    Food =>   
+
+
+
+    <div className = "browseCardContainer">
+    <div className = "browseCardTitle">
+        <h3>{Food.name}</h3>
+    </div>
+    <div className = "browseCardType">
+        <p>{Food.type}</p>
+    </div>
+    <div className = "browseCardDesc">
+        <p>{Food.description}</p>
+    </div>
+    <button onClick= { () => this.pushtoCart(Food.id)}>Add</button>
+    <button onClick= { () => this.updateFood(Food.id)}>Update</button>
+        <button onClick= { () => this.deleteFood(Food.id)}>Delete</button>
+</div>
+
+
+
+
+)}
+
+
+
+
+
+
+
+
+
+{/* <Container>
 
 
 <Row>
 {this.state.foodAvaliable.map(
-    Food =>      
+    Food =>   
 <Col md ={4}>
     <Card style={{ width: '20rem', height:'14rem'}}>
         <Card.Img variant="top" src=""   />
@@ -74,7 +109,7 @@ class Browse extends Component {
     </Card>
 </Col>
 )}
-</Row>
+</Row> */}
 
 
 
@@ -83,7 +118,7 @@ class Browse extends Component {
 
 
 
-</Container>
+{/* </Container> */}
 </div>
 </div>
   );

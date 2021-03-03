@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {Card, Container,Row,Col} from "react-bootstrap";
-import {Button} from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import UserService from './UserService.js';
 
 class addFood extends Component {
@@ -61,8 +59,8 @@ class addFood extends Component {
         <p>Description</p>
         <input type ="text" size ="70" name="description" placeholder="enter description"
         value = {this.state.description} onChange = {this.changeDescriptionHandler}></input>
-        <input type ="submit" name="" value="submit" variant = "success" onClick={this.saveFood}></input>
-        <input type ="submit" name="" value="cancel" variant = "success" onClick={this.cancel.bind(this)}></input>
+        <button type ="submit" name="" value="submit" variant = "success" onClick={this.saveFood}>Confirm</button>
+        <button type ="submit" name="" value="cancel" variant = "success" onClick={this.cancel.bind(this)}>Cancel</button>
         </form>
 
 

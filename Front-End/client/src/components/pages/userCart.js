@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import {Card, Container,Row,Col} from "react-bootstrap";
-import {Button} from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import UserService from './UserService.js';
 
 
@@ -13,7 +10,7 @@ class Cart extends Component {
             userCart:[]
             
         }
-
+        this.deleteCart = this.deleteCart.bind(this);
     }
     componentDidMount(){
         UserService.getCart().then((response)=>{
@@ -23,7 +20,21 @@ class Cart extends Component {
     
 
 
+    deleteCart(id){
+        UserService.deleteCart(id).then( res=> {
+            this.setState({cart: this.state.userCart.filter(cart => cart.id !==id)});
+            this.props.history.push("/userCart");
+        });
+    }
 
+    checkoutCart(){
+        UserService.checkout().then( res=> {
+            this.props.history.push("/userCart");
+        });
+    }
+
+
+ 
 
 
 
@@ -33,30 +44,34 @@ class Cart extends Component {
     render(){
   return (
     <div className= "browseList_background">
-    <div className= "browseList">
+    <div className= "checkoutbox">
 
-<h1 className = "text-center">Review Order</h1>
- <table className = "table table-striped">
+ <table className = "cart-table">
      <thread>
          <tr>
-         <td>Order Name</td>
-         <td>Order type</td>
+         <th>Order Name</th>
+         <th>Order type</th>
          </tr>
-     </thread>
+     
      <tbody>
                
      {this.state.userCart.map(
             userCart =>  
          <tr>
-             <td>{userCart.name}</td>
-             <td>{userCart.type}</td>
-             <td><button>Remove</button></td>
+             <th>{userCart.name}</th>
+             <th>{userCart.type}</th>
+             <th>        <button onClick= { () => this.deleteCart(userCart.id)}>Remove</button></th>
          </tr> )}
      </tbody>
+     </thread>
  </table>
 
 
 </div>
+{this.state.userCart.map(
+            userCart => 
+<button className = "checkout_btn"onClick= { () => this.checkoutCart()}>Checkout</button>
+)}
 </div>
   );
 }
