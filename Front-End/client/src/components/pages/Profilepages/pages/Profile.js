@@ -12,9 +12,18 @@ class Profile extends Component {
     this.state = {
       ProfileData : [],
       isloaded : false,
-      modalIsOpen : false,
-      setModalIsOpen : false
+      modalIsOpen : false
     }
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal(){
+    this.setState({modalIsOpen : true});
+  }
+
+  closeModal(){
+    this.setState({modalIsOpen : false})
   }
 
 
@@ -45,7 +54,7 @@ class Profile extends Component {
 
   render() {
 
-    var{isloaded, ProfileData, modalIsOpen, setModalIsOpen} = this.state;
+    var{isloaded, ProfileData, modalIsOpen} = this.state;
 
             return(
               <div className="profile_details" key={ProfileData.id}>
@@ -53,6 +62,7 @@ class Profile extends Component {
                 {/* <img className="p_img" src={item.image}></img> */}
                 <div className="user_details">
                 <p className="p_name">{ProfileData.firstName}</p><br/>
+                {/* <p className="p_name">{ProfileData.lastName}</p><br/> */}
                 <div className="mini_details">
                 <span className="p_location">{ProfileData.icon} {ProfileData.address}</span>
                 <span className="p_number">{ProfileData.phoneNumber}</span>
@@ -61,18 +71,19 @@ class Profile extends Component {
                 </div>
               </div>
               <div className="right_content">
-                <button className="p_edit_btn" onClick={()=>setModalIsOpen(true)}>Edit Profile</button>
-                <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)}>
+                <button className="p_edit_btn" onClick={()=> this.openModal()}>Edit Profile</button>
+                <Modal isOpen={this.state.modalIsOpen} onRequestClose={() => this.setState({modalIsOpen : false})} >
                   <div className="my_modal">
                     <h1>Edit Profile</h1>
-                    <button className="close_btn" onClick={()=>setModalIsOpen(false)}>X</button>
+                    <button className="close_btn" onClick={()=> this.closeModal()}>X</button>
                     <form className="my_form">
                       <input type="text" name="name" className="input_name" defaultValue={ProfileData.firstName}/><br /><br />
+                      <input type="text" name="name" className="input_name" defaultValue={ProfileData.lastName}/><br /><br />
                       <input type="email" name="email" className="input_email" defaultValue={ProfileData.email} /><br /><br />
                       <input type="number" name="number" className="input_number" defaultValue={ProfileData.phoneNumber}  /><br /><br />
                       <input type="text" name="address" className="input_address" defaultValue={ProfileData.address}  />
                     </form><br /><br />
-                    <button className="update_btn" onClick={()=>alert("Profile Updated", setModalIsOpen(false))}>UPDATE</button><br /><br />
+                    <button className="update_btn" onClick={()=>alert("Profile Updated", this.closeModal())}>UPDATE</button><br /><br />
                   </div>
                 </Modal>
                 <div className="user_content_details">
