@@ -1,328 +1,190 @@
-import React, { useState, useRef } from "react";
-import ReactDOM from "react-dom";
-import { useForm } from "react-hook-form";
-import ErrorMessage from "../pages/errorMessage"
+import React, { useState } from "react";
 import Footer from '../Footer'
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import Donations from '../DonateService';
+import axios from "axios";
+import Alert from "react-bootstrap/Alert";
+import {} from '../../styles/pages/Donate.css'
 
-const required = (value) => {
-  if (!value) {
+const Donate = () => {
+    const [itemName, setItemName] = useState ("");
+    const [expDate, setExpDate] = useState ("");
+    const [dateOfDonation, setDateofDonation] = useState ("");
+    const [companyName, setCompanyName] = useState ("");
+    const [itemType, setItemType] = useState ("");
+    const[errorPresentMoney, setErrorPresentMoney] = useState(false);
+    const[errorValue, setErrorValue] = useState('');
+    const[successfulIngredient, setSuccessfulIngredient] = useState(false);
+    const[successfulMoney, setSuccessfulIMoney] = useState(false);
+    const[isLoading, setIsLoading] = useState(false);
+    const[donateAs, setDonateAs] = useState('');
+    const[nameOnCard, setNameOnCard] = useState('');
+    const[cardNumber, setCardNumber] = useState('');
+    const[cardExpDate, setCardExpDate] = useState('');
+    const[amount, setAmount] = useState('');
+
+    const ingredients = (e) => {
+        setIsLoading(true);
+        e.preventDefault();
+        const ingredients_url = "http://localhost:8080/api/donation/createForm";
+        axios.post(ingredients_url, {
+            itemName: itemName,
+            expiryDate: expDate,
+            dateOfDonation: dateOfDonation,
+            companyName: companyName,
+            itemType: itemType
+        }).then(function (response) {
+            console.log(response.data);
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 500);
+            if(response.status === 200) {
+                setErrorValue("Donation Successful");
+                setSuccessfulIngredient(true);
+                setTimeout(() => {
+                    setSuccessfulIngredient(false);
+                }, 1500);
+            }
+        }).catch(err => {
+            setErrorValue(JSON.stringify(err.response));
+            console.log(JSON.stringify(err.response));
+        })
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 500);
+    };
+
+    const moneyDonation = (e) => {
+        setIsLoading(true);
+        e.preventDefault();
+        const money_url = "http://localhost:8080/api/ADD-HERE";
+        axios.post(money_url, {
+            donateAs: donateAs,
+            nameOnCard: nameOnCard,
+            cardNumber: cardNumber,
+            cardExpDate: cardExpDate,
+            amount: amount
+        }).then(function (response) {
+            console.log(response.data);
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 500);
+            if(response.status === 200) {
+                setErrorValue("Donation Successful");
+                setSuccessfulIMoney(true);
+                setTimeout(() => {
+                    setSuccessfulIMoney(false);
+                }, 1000);
+            }
+        }).catch(err => {
+            setErrorValue(JSON.stringify(err.response.data));
+            setErrorPresentMoney(true);
+            setTimeout(() => {
+                setErrorPresentMoney(false);
+            }, 5000);
+        })
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 500);
+    };
+
+
     return (
-      <div className="errorAlert" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
+        <div className={"helpPageDonation"}>
+            <div className = "donationBackround">
+                <div className = "IngredientFormPage">
+                    <form className="IngredientForm" onSubmit={ingredients}>
+                        <h1 className = "donHeader">Donate Ingredients/Foods</h1>
+                        <label>Ingredient/Food: (*)</label>
+                        <input className="donInput" type="text" required minLength={3} maxLength={20}
+                               onChange={e => setItemName(e.target.value)}
+                        />
 
-// const validEmail = (value) => {
-//   if (!isEmail(value)) {
-//     return (
-//       <div className="errorAlert" role="alert">
-//         This is not a valid email.
-//       </div>
-//     );
-//   }
-// };
+                        <label>Expiration Date: (*)</label>
+                        <input className="donInput" type="date" required
+                               onChange={e => setExpDate(e.target.value)}
+                        />
 
-const vItemName = (value) => {
-  if (value.length < 3 || value.length > 20) {
-    return (
-      <div className="errorAlert" role="alert">
-        The username must be between 3 and 20 characters.
-      </div>
-    );
-  }
-};
+                        <label>Date of Donation: (*)</label>
+                        <input className="donInput" type="date" required
+                               onChange={e => setDateofDonation(e.target.value)}
+                        />
 
-// const vDate = (value) => {
-//   if (!(pattern == /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
-//     return (
-//       <div className="errorAlert" role="alert">
-//         The password must be between 6 and 40 characters.
-//       </div>
-//     );
-//   }
-// };
+                        <label>Company Name:</label>
+                        <input className="donInput" type="text" minLength={3} maxLength={20}
+                               onChange={e => setCompanyName(e.target.value)}
+                        />
 
-const Donate = (props) => {
-  const form = useRef();
-  const checkBtn = useRef();
+                        <label>Donation Type: (*)</label>
+                        <input className="donInput" type="text" required min={3} maxLength={10}
+                               onChange={e => setItemType(e.target.value)}
+                        />
+                        <div>
+                            {successfulIngredient
+                                ? <Alert variant="danger" style={{
+                                    textAlign: "center", marginTop: "0px", color: "lightGreen",
+                                    fontSize: "17px", marginLeft: "-20%", marginRight: "-20%", textTransform: "none"
+                                }}>{errorValue}</Alert>
+                                : <Alert variant="success"/>
+                            }
+                        </div>
+                        <button className="donateSubmitButton" type="submit" disabled={isLoading}>
+                            {isLoading && <i className="fas fa-spinner fa-pulse"/>}
+                            {!isLoading && <p>Submit</p>}
+                        </button>
+                    </form>
+                </div>
+                <div className = "MoneyFormPage">
+                    <form className="MoneyForm" onSubmit={moneyDonation}>
+                        <h1 className = "donHeader">Donate Money Today</h1>
+                        <label>Donate As:</label>
+                        <input className="donInput" type="text" required minLength={3} maxLength={20}
+                               onChange={e => setDonateAs(e.target.value)}
+                        />
 
-//   const [username, setUsername] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [successful, setSuccessful] = useState(false);
-//   const [message, setMessage] = useState("");
+                        <label>Name On Card:</label>
+                        <input className="donInput" type="text" required minLength={3} maxLength={20}
+                               style={{height: '43px'}} onChange={e => setNameOnCard(e.target.value)}
+                        />
 
-  const [itemName, setItemName] = useState ("")
-  const [expDate, setExpDate] = useState ("")
-  const [dateOfDonation, setDateofDonation] = useState ("")
-  const [companyName, setCompanyName] = useState ("")
-  const [itemType, setItemType] = useState ("")
-  const [successful, setSuccessful] = useState(false);
-  const [message, setMessage] = useState("");
-//   const [file,setFile] = useState("")
-  
+                        <label>Card Number:</label>
+                        <input className="donInput" type="text" required minLength={16} maxLength={19}
+                               style={{height: '43px'}} onChange={e => setCardNumber(e.target.value)}
+                        />
 
-  const onChangeItemName = (e) => {
-    const itemName = e.target.value;
-    setItemName(itemName);
-  }
-  
-  const onChangeExpDate = (e) => {
-    const expDate = e.target.value;
-    setExpDate(expDate);
-  }
-  
-  const onChangeDateOfDonation = (e) => {
-    const dateOfDonation = e.target.value;
-    setDateofDonation(dateOfDonation);
-  }
-  
-  const onChangeCompanyName = (e) => {
-    const companyName = e.target.value;
-    setCompanyName(companyName);
-  }
-  
-  const onChangeItemType = (e) => {
-    const itemType = e.target.value;
-    setItemType(itemType);
-  }
-  
-  // const onChangeFile = (e) => {
-  //   const file = e.target.value;
-  //   setFile(file);
-  // }
+                        <label>Expiration Date:</label>
+                        <input className="donInput" type="month" required
+                               style={{height: '37px'}} onChange={e => setCardExpDate(e.target.value)}
+                        />
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-
-    setMessage("");
-    setSuccessful(false);
-
-    // Form.current.validateAll();
-
-        Donations.Donations(itemName, expDate, dateOfDonation, companyName, itemType).then(
-        (response) => {
-          setMessage(response.data.message);
-          setSuccessful(true);
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-
-          setMessage(resMessage);
-          setSuccessful(false);
-        }
-      );
-    
-  };
-
-
-
-return (
-  <div>
-     <div className = "donBackround">
-        <div className = "Form">
-           <form className="Ingredient" onSubmit={handleRegister} ref={form}>
-           {!successful && (
-              <div>
-              <h1 className = "donHeader">Donate Ingredients and Food</h1>
-              <label>Ingredient/Food:</label>
-
-              <input 
-               type="text"
-                  className="donInput"
-                  name="itemName"
-                  value={itemName}
-                  onChange={onChangeItemName}
-                  validations={[required, vItemName]}
-                  />
-
-              <label>Expiration Date:</label>
-              <input 
-               type="text"
-                  className="donInput"
-                  name="expDate"
-                  value={expDate}
-                  onChange={onChangeExpDate}
-                  // validations={[required, vDate]}
-                />
-
-              <label>Date of Donation:</label>
-              <input 
-               type="text"
-                  className="donInput"
-                  name="dateOfDonation"
-                  value={dateOfDonation}
-                  onChange={onChangeDateOfDonation}
-                  // validations={[required, vDate]}
-                />
-
-              <label>Company Name:</label>
-              <input 
-               type="text"
-                  className="donInput"
-                  name="companyName"
-                  value={companyName}
-                  onChange={onChangeCompanyName}
-                />
-
-              <label>Donation Type</label>
-              <input
-                  type="text"
-                  className="donInput"
-                  name="itemType"
-                  value={itemType}
-                  onChange={onChangeItemType}
-                  validations={[required, vItemName]}
-                />
-              
-              {/* <input 
-              className="donInput" 
-              name = "file"
-              type="file" 
-              // onChange={onChange} 
-              name={file}
-              // value={file}
-              ref={register({ required: true })}
-              /> */}
-              
-               
-              <button className="DonSubmit">Submit</button>
+                        <label>Amount:</label>
+                        <input className="donInput" type="number" required min={1}
+                               onChange={e => setAmount(e.target.value)}
+                        />
+                        <div>
+                            {errorPresentMoney
+                                ? <Alert variant="danger" style={{
+                                    textAlign: "center", marginTop: "0px", color: "red",
+                                    fontSize: "17px", marginLeft: "-20%", marginRight: "-20%", textTransform: "none"
+                                }}>Error : {errorValue}</Alert>
+                                : <Alert variant="success"/>
+                            }
+                            {successfulMoney
+                                ? <Alert variant="danger" style={{
+                                    textAlign: "center", marginTop: "0px", color: "lightGreen",
+                                    fontSize: "17px", marginLeft: "-20%", marginRight: "-20%", textTransform: "none"
+                                }}>{errorValue}</Alert>
+                                : <Alert variant="success"/>
+                            }
+                        </div>
+                        <button className="donateSubmitButton" type="submit" disabled={isLoading}>
+                            {isLoading && <i className="fas fa-spinner fa-pulse"/>}
+                            {!isLoading && <p>Donate</p>}
+                        </button>
+                    </form>
+                </div>
             </div>
-          )}
-          {message && (
-            <div className="form-group">
-              <div
-                className={
-                  successful ? "alert alert-success" : "alert alert-danger"
-                }
-                role="alert"
-              >
-                {message}
-              </div>
+            <Footer/>
             </div>
-          )}
-
-
-           </form>
-           </div>
-           
-     </div >
-     <Footer/>
-     </div>
-  );
-  }
-
-
-            {/*DONATE MONEY FORM*/}
-
-            {/* <form id="DonateMoney" onSubmit={onSubmit}>
-
-                <h1 className = "donHeader">Donate Money Today</h1>
-                <label>Donate As:</label>
-                <input
-                    className = "donInput"
-                    name="donateAs"
-                    onChange={onChangeDonateAs}
-                    value= {donateAs}
-                    ref={register({ required: true, minLength: 2, maxLength:20 })} />
-                <ErrorMessage error={errors.donateAs} />
-                <label>Name On Card:</label>
-                <input
-                    className = "donInput"
-                    name="cardName"
-                    onChange={onChangeCardName}
-                    value= {cardName}
-                    ref={register({ required: true, minLength: 16, maxLength:20 })} />
-                <ErrorMessage error={errors.cardName} />
-                <label>Card Number:</label>
-                <input
-                    className = "donInput"
-                    name="cardNumber"
-                    onChange={onChangeCardNumber}
-                    value= {cardNumber}
-                    ref={register({ required: true, minLength: 2, maxLength:16 })} />
-                <ErrorMessage error={errors.cardNumber} />
-                <label>Expiration Date:</label>
-                <input
-                    className = "donInput"
-                    name="cardExpirationDate"
-                    onChange={onChangeCardExpirationDAte}
-                    value= {cardExpirationDate}
-                    ref={register({ required: true, pattern:/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/})} />
-                <ErrorMessage error={errors.cardExpirationDate} />
-                <label>Amount:</label>
-                <input
-                    className = "donInput"
-                    name="amountToDonate"
-                    onChange={onChangeAmountToDonate}
-                    value= {amountToDonate}
-                    ref={register({ required: true, minLength: 2, maxLength:20 })} />
-                <ErrorMessage error={errors.amountToDonate} />
-                <button id={"submitButton"}
-                    className = "DonSubmit"
-                    onClick={onSubmitMoney}>
-                    Submit
-                </button>
-            </form> */}
-    
-
-// const rootElement = document.getElementById("root");
+    );
+}
 
 export default Donate;
-
-// const [donateAs, setDonateAs] = useState ("")
-// const [cardNumber, setCardNumber] = useState ("")
-// const [cardExpirationDate, setCardExpirationDate] = useState ("")
-// const [cardName, setCardName] = useState ("")
-// const [cardCSV, setCardCSV] = useState ("")
-// const [amountToDonate, setAmountToDonate] = useState("")
-
-// const onChangeDonateAs = (e) => {
-//   const donateAs = e.target.value;
-//   setDonateAs(donateAs);
-// }
-
-// const onChangeCardName = (e) => {
-//   const cardName = e.target.value;
-//   setCardName(cardName);
-// }
-
-// const onChangeCardNumber = (e) => {
-//   const cardNumber = e.target.value;
-//   setCardNumber(cardNumber);
-// }
-
-// const onChangeCardExpirationDAte = (e) => {
-//   const cardExpirationDate = e.target.value;
-//   setCardExpirationDate(cardExpirationDate);
-// }
-
-// const onChangeCardCSV = (e) => {
-//   const cardCSV = e.target.value;
-//   setCardCSV(cardCSV);
-// }
-
-// const onChangeAmountToDonate = (e) => {
-//   const amountToDonate = e.target.value;
-//   setAmountToDonate(amountToDonate);
-// }
-
-// const onSubmitMoney = (e) => {
-//   e.preventDefault();
-
-//   DonationService.DonateMoney(donateAs, cardNumber, cardName, cardExpirationDate, cardCSV, amountToDonate).then(
-//       (response) => {
-//       }
-//   )
-// }

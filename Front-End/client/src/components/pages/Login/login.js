@@ -20,6 +20,9 @@ const Login = () => {
             console.log(response);
             if (response.headers.authorization) {
                 setErrorPresent(false);
+                setTimeout(() => {
+                    setIsLoading(false);
+                }, 500)
                 localStorage.setItem("token", JSON.stringify(response.headers.authorization));
                 localStorage.setItem("loggedIn", "true");
                 return window.location = "/";

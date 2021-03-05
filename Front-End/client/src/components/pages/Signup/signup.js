@@ -34,8 +34,10 @@ const Signup = () => {
             allergy
         }).then(function (response) {
                 console.log(response);
-                setIsLoading(false);
                 if(response.status === 200) {
+                    setTimeout(() => {
+                        setIsLoading(false);
+                    }, 500);
                     return window.location = "/Login";
                 }
         }).catch(err => {

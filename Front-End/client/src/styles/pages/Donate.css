@@ -1,26 +1,33 @@
-/* body {
+.helpPageDonation {
   background: #0e101c;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-} */
-
-.donBackround {
-  background: #0e101c;
-  height: 110vh;
-  display: flex;
-}
-
-.Ingredient, #DonateMoney {
-  margin-left: 6.5rem;
-  max-width: 300px;
-  background: #0e101c;
+  height: 100%;
+  width: 100%;
   display: inline-block;
 }
 
-#DonateMoney {
-  margin-left: 33rem;
-  max-width: 500px;
+.donationBackround {
+  overflow: hidden;
+}
+
+.IngredientFormPage {
+  margin-left: 17%;
+  margin-top: 3%;
+  margin-bottom: 4%;
+  float: left;
+}
+
+.MoneyFormPage {
+  margin-left: 60%;
+  margin-top: 5.25%;
+  margin-bottom: 4%;
+
+}
+
+.IngredientForm, .MoneyForm {
+  max-width: 350px;
+  min-width: 350px;
+  background: #0e101c;
+  display: inline-block;
 }
 
 .donHeader {
@@ -53,94 +60,33 @@ label {
   display: block;
 }
 
-.donSubmit[type="button"],
-.donInput[type="submit"] {
-  background: #ec5990;
-  color: white;
-  font-weight: 100;
-  letter-spacing: 10px;
-  text-transform: uppercase;
-  padding: 20px;
-  border: none;
-  margin-top: 40px;
-  font-size: 16px;
-}
-
-.donSubmit[type="button"]:hover,
-.donInput[type="submit"]:hover {
-  background: #bf1650;
-}
-
-.donSubmit[type="button"]:active,
-.donInput[type="button"]:active,
-.donInput[type="submit"]:active {
-  transition: 0.3s all;
-  transform: translateY(3px);
-  border: 1px solid transparent;
-  opacity: 0.8;
-}
-
-.donInput:disabled {
-  opacity: 0.4;
-}
-
-.donInput[type="button"]:hover {
-  transition: 0.3s all;
-}
-
-.donSubmit[type="button"],
-.donInput[type="button"],
-.donInput[type="submit"] {
-  -webkit-appearance: none;
-}
-
-.donSubmit[type="button"] {
-  display: block;
-  appearance: none;
-  border: none;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 4px;
-  background: #333;
-  color: white;
-}
-
-hr {
-  margin-top: 30px;
-}
-
-.donSubmit {
-  display: block;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  appearance: none;
-  border: 1px solid #333;
-  margin-top: 40px;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-.required_val {
-  color: red;
-}
-
-#submitButton {
-  background-color: #35de7b;
-  width: 35%;
-  align-self: center;
-  height: 35px;
-  font-size: 18px;
-  border-radius: 7px;
-  margin-left: 110px;
-  margin-top: 7px;
-}
-
-#submitButton:hover {
-  background-color: #37ff88;
-}
-
-#submitButton:focus{
+.donateSubmitButton:focus {
   outline: none !important;
-  border-color: white;
+  border-color: #474343;
   border-width: 2px;
+  box-shadow: 0 0 6px #2e2e2e;
+}
+
+.donateSubmitButton:hover {
+  padding: 6px 18px;
+  transition: all 0.3s ease-out;
+  background-color: transparent;
+  color: #2ed370;
+  border-radius: 4px;
+  border: 2px solid var(--primary);
+}
+
+.donateSubmitButton {
+  padding: 8px 10px;
+  margin-top: 7px;
+  margin-left: 100px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  width: 9rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: var(--primary);
+  font-family: "Arvo", sans-serif;
 }
