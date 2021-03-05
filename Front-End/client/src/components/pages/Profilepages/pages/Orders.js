@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import axios from "axios";
+import authHeader from "../../Login/authHeader";
 
 export default class Orders extends Component {
 
@@ -12,14 +13,15 @@ export default class Orders extends Component {
   }
 
   componentDidMount(){
-    const access_token1 = localStorage.getItem('token');
-    const access_token = access_token1.substring(1, access_token1.length-1);
-    console.log("Orders Token " + access_token);
     const api = 'http://localhost:8080/api/v1/users/ordersData';
-
+    let checkAccessToken = authHeader().token;
+    let accessToken = "";
+    if(checkAccessToken !== undefined) {
+      accessToken = authHeader().token.toString();
+    }
     axios.interceptors.request.use(
       config => {
-        config.headers.authorization = access_token;
+        config.headers.authorization = accessToken;
         return config;
       },
       error =>{

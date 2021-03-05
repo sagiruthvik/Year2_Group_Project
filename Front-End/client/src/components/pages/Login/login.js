@@ -3,6 +3,7 @@ import '../Login/login.css';
 import Footer from "../../Footer";
 import axios from "axios";
 import Alert from "react-bootstrap/Alert";
+import authHeader from "./authHeader";
 
 const Login = () => {
     const[username, setUsername] = useState('');
@@ -16,9 +17,10 @@ const Login = () => {
         const content = axios.post('http://localhost:8080/login', {
             username,
             password
-        }, { withCredentials: true }).then(function (response) {
+        }).then(function (response) {
             console.log(response);
-            if (response.headers.authorization) {
+            console.log(response.headers);
+            if (response.headers.authorization && response.status === 200) {
                 setErrorPresent(false);
                 setTimeout(() => {
                     setIsLoading(false);

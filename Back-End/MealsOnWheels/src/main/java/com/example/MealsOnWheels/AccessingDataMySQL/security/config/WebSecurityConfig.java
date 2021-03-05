@@ -15,8 +15,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import javax.crypto.SecretKey;
+
+import java.util.Arrays;
 
 import static com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserPermission.*;
 import static com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserRoles.*;
@@ -38,6 +44,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
 //                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 //                .and()
+                .cors()
+                .and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -91,4 +99,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return provider;
     }
 
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+        return source;
+    }
 }
