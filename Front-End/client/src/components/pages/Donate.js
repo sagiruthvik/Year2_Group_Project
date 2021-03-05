@@ -55,7 +55,7 @@ const Donate = () => {
     const moneyDonation = (e) => {
         setIsLoading(true);
         e.preventDefault();
-        const money_url = "http://localhost:8080/api/ADD-HERE";
+        const money_url = "http://localhost:8080/api/moneyDonation/addDonation";
         axios.post(money_url, {
             donateAs: donateAs,
             nameOnCard: nameOnCard,
@@ -72,7 +72,7 @@ const Donate = () => {
                 setSuccessfulIMoney(true);
                 setTimeout(() => {
                     setSuccessfulIMoney(false);
-                }, 1000);
+                }, 1500);
             }
         }).catch(err => {
             setErrorValue(JSON.stringify(err.response.data));
