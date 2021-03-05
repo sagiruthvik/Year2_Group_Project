@@ -11,6 +11,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class PostCodeRequest {
-    private String pickUpPostCode;
-    private String deliveryPostCode;
+    private final String pickUpPostCode;
+    private final String deliveryPostCode;
 }

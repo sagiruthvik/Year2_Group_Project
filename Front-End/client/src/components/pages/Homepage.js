@@ -10,12 +10,13 @@ const Homepage = () => {
    const handleRegister = (e) => {
       e.preventDefault();
 
-      const content = axios.post('http://localhost:8080/login', {
-            postcode
+      const content = axios.post('http://localhost:8080/api/restaurantes/checkPostcode', {
+            pickupPostCode: "",
+            deliveryPostCode: postcode
         }).then(function (response) {
 
            if(response.status === 200) {
-              if(response.data === "true") {
+              if(response.data === true) {
                  return window.location = "/found";
               } 
               else {
