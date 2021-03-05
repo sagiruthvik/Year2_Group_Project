@@ -17,6 +17,7 @@ const Homepage = () => {
 
            if(response.status === 200) {
               if(response.data === true) {
+                 localStorage.setItem("deliveryPostCode", JSON.stringify(postcode));
                  return window.location = "/found";
               } 
               else {
@@ -27,7 +28,6 @@ const Homepage = () => {
         }).catch(err => {
          console.log(JSON.stringify(err));
      })
-
   }
   
 return(

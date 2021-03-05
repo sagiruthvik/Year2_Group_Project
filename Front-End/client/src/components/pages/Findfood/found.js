@@ -5,6 +5,8 @@ import '../Findfood/found-card.css'
 import '../Findfood/found-appearance.css'
 import Footer from "../../Footer"
 import img1 from '../../../img/notFound.jpg'
+import axios from 'axios'
+
 class found extends React.Component {
 
     constructor(props){
@@ -15,13 +17,21 @@ class found extends React.Component {
              
     }
 
-
     componentDidMount(){
-        foundService.getRestaurantes().then((response) => {
-            console.log(response.data)
-           this.setState({restaurantes: response.data})
-        });
-       
+        const deliveryPostCode = JSON.parse(localStorage.getItem('deliveryPostCode'));;
+        console.log(deliveryPostCode);
+        if(deliveryPostCode !== undefined) {
+            const content = axios.post('http://localhost:8080/api/restaurantes/getValidRestaurant', {
+                pickupPostCode: "",
+                deliveryPostCode: deliveryPostCode
+            }).then((response) => {
+                console.log(response.data)
+                this.setState({restaurantes: response.data})
+            }).catch(err => {
+                console.log(JSON.stringify(err));
+            });
+        }
+         
     }
 
     render(){
