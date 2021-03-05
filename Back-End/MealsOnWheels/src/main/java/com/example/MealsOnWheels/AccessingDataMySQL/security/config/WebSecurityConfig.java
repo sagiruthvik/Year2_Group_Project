@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/signup/**").permitAll()
                 .antMatchers("/api/donation/createForm").permitAll()
                 .antMatchers("/api/moneyDonation/addDonation").permitAll()
-                .antMatchers("/api/restaurantes/**").permitAll()
+                //.antMatchers("/api/restaurantes/**").permitAll()
                 .antMatchers("/api/**").hasAnyRole(USER.name(), ADMIN.name())
                 .antMatchers(HttpMethod.GET, "/api/**").hasAnyAuthority(USER_READ.getPermission())
                 .antMatchers(HttpMethod.GET, "/management/api/**").hasAnyAuthority(ADMIN_WRITE.getPermission())
