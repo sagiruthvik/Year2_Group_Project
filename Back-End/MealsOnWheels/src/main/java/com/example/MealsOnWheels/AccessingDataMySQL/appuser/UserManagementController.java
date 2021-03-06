@@ -38,8 +38,8 @@ public class UserManagementController {
 
     //TODO add put method to update students and admins users. (below not functioning double check)
 
-//    @PutMapping(path = "/{userID}")
-//    public void updateUser(@PathVariable("userID") long userID, @RequestBody @Valid Users user) {
+//    @PutMapping(path = "updateUser/{userID}")
+//    public void updateUser(@PathVariable("userID") long userID, @RequestBody Users user) {
 //        userServices.updateUser(userID, user);
 //    }
 

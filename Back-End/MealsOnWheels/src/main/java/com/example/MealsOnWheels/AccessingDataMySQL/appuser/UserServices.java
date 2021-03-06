@@ -5,6 +5,7 @@ import com.example.MealsOnWheels.AccessingDataMySQL.exception.ResourceNotFound;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationToken;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -115,6 +116,12 @@ public class UserServices implements UserDetailsService {
                 orElseThrow(() -> (new ApiRequestException("No User Found With ID : " + userID)));
         usersRepository.delete(existingUser);
     }
+
+//    public void updateUser(long userID, Users user){
+//        Users updateUser = usersRepository.findById(userID).
+//                orElseThrow(() -> (new ApiRequestException("No User Found With ID : " + userID)));
+//        usersRepository.save(updateUser);
+//    }
 
     //validate username
     //validate email

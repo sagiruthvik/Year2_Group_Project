@@ -52,13 +52,13 @@ class Profile extends Component {
           })
   }
 
-  postingData(){
-    axios.post("http://localhost:8080/api/v1/users/postData", "Testing the post request").then((res)=>{
-      console.log(res)
-    }).catch((error)=>{
-      console.log(error);
-    })
-  }
+  // postingData(){
+  //   axios.post("http://localhost:8080/api/v1/users/postData", "Testing the post request").then((res)=>{
+  //     console.log(res)
+  //   }).catch((error)=>{
+  //     console.log(error);
+  //   })
+  // }
 
 
 
@@ -67,7 +67,7 @@ class Profile extends Component {
     var{isloaded, ProfileData, modalIsOpen} = this.state;
 
             return(
-              <div className="profile_details" key={ProfileData.id}>
+              <div className="profile_details" key={ProfileData.id} UserID={ProfileData.id }>
               <div className="left_content">
                 {/* <img className="p_img" src={item.image}></img> */}
                 <div className="user_details">
