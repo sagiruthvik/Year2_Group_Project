@@ -123,11 +123,6 @@ public class UserServices implements UserDetailsService {
         if (existingUser.isEmpty()) throw new IllegalStateException("Users Email Is Not Present In Database.");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Object loggedInUsersEmail = auth.getPrincipal();
-        System.out.println("existingUser = " + existingUser);
-//        System.out.println("existingUser = " + existingUser);
-//        System.out.println("loggedInUsersEmail = " + loggedInUsersEmail);
-//        System.out.println("existingUserEMAIL = " + existingUser.get().getEmail());
-        //return "YEAP";
         if(existingUser.get().getEmail().equals(loggedInUsersEmail)) {
             Users currentUser = existingUser.get();
             currentUser.setFirstName(userUpdateRequest.getFirstName());
@@ -142,7 +137,6 @@ public class UserServices implements UserDetailsService {
         }
 
         Users updatedUserInfo = usersRepository.findByEmail(userUpdateRequest.getEmail()).get();
-        System.out.println("updatedUserInfo = " + updatedUserInfo);
         return updatedUserInfo;
     }
 
