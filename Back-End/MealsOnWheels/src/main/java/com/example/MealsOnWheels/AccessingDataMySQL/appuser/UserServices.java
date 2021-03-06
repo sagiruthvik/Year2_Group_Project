@@ -5,7 +5,8 @@ import com.example.MealsOnWheels.AccessingDataMySQL.exception.ResourceNotFound;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationToken;
 import com.example.MealsOnWheels.AccessingDataMySQL.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -117,11 +118,34 @@ public class UserServices implements UserDetailsService {
         usersRepository.delete(existingUser);
     }
 
-//    public void updateUser(long userID, Users user){
-//        Users updateUser = usersRepository.findById(userID).
-//                orElseThrow(() -> (new ApiRequestException("No User Found With ID : " + userID)));
-//        usersRepository.save(updateUser);
-//    }
+    public Users updateUserInfo(UserUpdateRequest userUpdateRequest) {
+        Optional<Users> existingUser = usersRepository.findByEmail(userUpdateRequest.getEmail());
+        if (existingUser.isEmpty()) throw new IllegalStateException("Users Email Is Not Present In Database.");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Object loggedInUsersEmail = auth.getPrincipal();
+        System.out.println("existingUser = " + existingUser);
+//        System.out.println("existingUser = " + existingUser);
+//        System.out.println("loggedInUsersEmail = " + loggedInUsersEmail);
+//        System.out.println("existingUserEMAIL = " + existingUser.get().getEmail());
+        //return "YEAP";
+        if(existingUser.get().getEmail().equals(loggedInUsersEmail)) {
+            Users currentUser = existingUser.get();
+            currentUser.setFirstName(userUpdateRequest.getFirstName());
+            currentUser.setLastName(userUpdateRequest.getLastName());
+            currentUser.setDateOfBirth(userUpdateRequest.getDateOfBirth());
+            currentUser.setAddress(userUpdateRequest.getAddress());
+            currentUser.setPhoneNumber(userUpdateRequest.getPhoneNumber());
+            currentUser.setAllergy(userUpdateRequest.getAllergy());
+            usersRepository.save(currentUser);
+        } else {
+            throw new IllegalStateException("Users Email Doesn't Match Current Logged In User.");
+        }
+
+        Users updatedUserInfo = usersRepository.findByEmail(userUpdateRequest.getEmail()).get();
+        System.out.println("updatedUserInfo = " + updatedUserInfo);
+        return updatedUserInfo;
+    }
+
 
     //validate username
     //validate email

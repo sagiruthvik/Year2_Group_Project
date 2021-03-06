@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import static com.example.MealsOnWheels.AccessingDataMySQL.appuser.UserPermission.*;
 
 public enum UserRoles {
-    USER(Sets.newHashSet(USER_READ)),
+    USER(Sets.newHashSet(USER_READ, USER_WRITE)),
     ADMIN(Sets.newHashSet(USER_READ, USER_WRITE, ADMIN_READ, ADMIN_WRITE));
 
     private final Set<UserPermission> permissions;
