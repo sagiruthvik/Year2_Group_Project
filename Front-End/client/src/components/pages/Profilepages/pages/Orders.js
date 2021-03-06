@@ -108,3 +108,24 @@ export default class Orders extends Component {
     }
   }
 }
+
+// <div className="column" key={JSON.stringify(OrdersData[i].orderID)}>
+//             <div className="card">
+//               <div className="res_details">
+//               <p className="res_name">{JSON.stringify(OrdersData[i].orderRestaurantName)}</p>
+//               <p className="res_add">{JSON.stringify(OrdersData[i].orderRestaurantAddress)}</p>
+//               <p className="order_no">Order{JSON.stringify(OrdersData[i].orderNumber)}</p>
+//               <div className="btn">
+//               <button className="button">Reorder</button>   <button className="button">Help</button>
+//               </div>
+//                 <img src={JSON.stringify(OrdersData[i].images)}></img>
+//                 </div>
+//                 <div className="order_details">
+//                 <h2 className="or_de">Order details</h2>
+//               <h3 className="item">{JSON.stringify(OrdersData[i].orderName)} {JSON.stringify(OrdersData[i].orderQuantity)}</h3>
+//               <p className="price">Paid : £{JSON.stringify(OrdersData[i].orderPrice)}</p>
+//               <p className="or_date">Orderd on {JSON.stringify(OrdersData[i].orderDate)}</p>
+//               <p className="del_date">Delivered on {JSON.stringify(OrdersData[i].orderDeliveryDate)}</p>
+//               </div>
+//             </div>
+//            </div>
