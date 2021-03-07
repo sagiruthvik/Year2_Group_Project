@@ -33,7 +33,6 @@ export default class Orders extends Component {
             // response.json()
             console.log("Order 0 data " + JSON.stringify(response.data[0].orderUserID));
             this.setState({
-              isloaded : true,
               OrdersData : response.data
             });
           })
@@ -42,6 +41,7 @@ export default class Orders extends Component {
             // response.json()
             console.log("Profile data ID "+response.data.id);
             this.setState({
+              isloaded : true,
               ProfileData : response.data
             });
           })
@@ -51,6 +51,14 @@ export default class Orders extends Component {
 
     var{isloaded, OrdersData, ProfileData} = this.state;
 
+    var final_orders = [];
+    for(var i=0;i<OrdersData.length;i++){
+      if(JSON.stringify(OrdersData[i].orderUserID) == ProfileData.id){
+        final_orders.push(OrdersData[i]);
+      }
+    }
+    console.log("final Orders " + (final_orders));
+
     if(!isloaded){
       return(
         <div className="container">
@@ -59,73 +67,55 @@ export default class Orders extends Component {
       )
     }
 
-    for(var i=0;i<OrdersData.length;i++){
-      {console.log(OrdersData.length)}
-      if(JSON.stringify(OrdersData[i].orderUserID) != ProfileData.id){
-        {console.log(OrdersData[i].OrderUserID)}
+    if(final_orders.length == 0){
+      return(
+        <div className="container">
+          <h1>No Orders Yet!</h1>
+        </div>
+      )
+    }
+
+    // for(var i=0;i<OrdersData.length;i++){
+      // {console.log(OrdersData.length)}
+      // if(JSON.stringify(OrdersData[i].orderUserID) != ProfileData.id){
+      //   {console.log(OrdersData[i].OrderUserID)}
         
-        return(
-          <div className="container">
-            <h1>No Order Found</h1>
-          </div>
-        )
-      }else{
+      //   return(
+      //     <div className="container">
+      //       <h1>No Order Found</h1>
+      //     </div>
+      //   )
+      // }
+      // else{
 
      return (
 
       <div className="container">
-      {/* {OrdersData.map((item,index)=>{
-          return( */}
-            
-          {/* // <div className="row"> */}
-          <div className="column" key={JSON.stringify(OrdersData[i].orderID)}>
+        {final_orders.map((item,index)=>{
+          return(
+            <div className="column" key={index}>
             <div className="card">
               <div className="res_details">
-              <p className="res_name">{JSON.stringify(OrdersData[i].orderRestaurantName)}</p>
-              <p className="res_add">{JSON.stringify(OrdersData[i].orderRestaurantAddress)}</p>
-              <p className="order_no">Order{JSON.stringify(OrdersData[i].orderNumber)}</p>
+              <p className="res_name">{item.orderRestaurantName}</p>
+              <p className="res_add">{item.orderRestaurantAddress}</p>
+              <p className="order_no">Order{item.orderNumber}</p>
               <div className="btn">
               <button className="button">Reorder</button>   <button className="button">Help</button>
               </div>
-                <img src={JSON.stringify(OrdersData[i].images)}></img>
+                <img src={item.images}></img>
                 </div>
                 <div className="order_details">
                 <h2 className="or_de">Order details</h2>
-              <h3 className="item">{JSON.stringify(OrdersData[i].orderName)} {JSON.stringify(OrdersData[i].orderQuantity)}</h3>
-              <p className="price">Paid : £{JSON.stringify(OrdersData[i].orderPrice)}</p>
-              <p className="or_date">Orderd on {JSON.stringify(OrdersData[i].orderDate)}</p>
-              <p className="del_date">Delivered on {JSON.stringify(OrdersData[i].orderDeliveryDate)}</p>
+              <h3 className="item">{item.orderName} {item.orderQuantity}</h3>
+              <p className="price">Paid : £{item.orderPrice}</p>
+              <p className="or_date">Orderd on {item.orderDate}</p>
+              <p className="del_date">Delivered on {item.orderDeliveryDate}</p>
               </div>
             </div>
            </div>
-         {/* </div> */}
-      {/* //     );
-      // })} */}
+          )
+        })}
   </div>
-
     )
-      }
-    }
   }
 }
-
-// <div className="column" key={JSON.stringify(OrdersData[i].orderID)}>
-//             <div className="card">
-//               <div className="res_details">
-//               <p className="res_name">{JSON.stringify(OrdersData[i].orderRestaurantName)}</p>
-//               <p className="res_add">{JSON.stringify(OrdersData[i].orderRestaurantAddress)}</p>
-//               <p className="order_no">Order{JSON.stringify(OrdersData[i].orderNumber)}</p>
-//               <div className="btn">
-//               <button className="button">Reorder</button>   <button className="button">Help</button>
-//               </div>
-//                 <img src={JSON.stringify(OrdersData[i].images)}></img>
-//                 </div>
-//                 <div className="order_details">
-//                 <h2 className="or_de">Order details</h2>
-//               <h3 className="item">{JSON.stringify(OrdersData[i].orderName)} {JSON.stringify(OrdersData[i].orderQuantity)}</h3>
-//               <p className="price">Paid : £{JSON.stringify(OrdersData[i].orderPrice)}</p>
-//               <p className="or_date">Orderd on {JSON.stringify(OrdersData[i].orderDate)}</p>
-//               <p className="del_date">Delivered on {JSON.stringify(OrdersData[i].orderDeliveryDate)}</p>
-//               </div>
-//             </div>
-//            </div>

@@ -96,7 +96,7 @@ class Profile extends Component {
                       <input type="number" name="number" className="input_number" defaultValue={ProfileData.phoneNumber}  /><br /><br />
                       <input type="text" name="address" className="input_address" defaultValue={ProfileData.address}  />
                     </form><br /><br />
-                    <button className="update_btn" onClick={()=>alert("Profile Updated", this.postingData())}>UPDATE</button><br /><br />
+                    <button className="update_btn" onClick={()=>alert("Profile Updated")}>UPDATE</button><br /><br />
                   </div>
                 </Modal>
                 <div className="user_content_details">
