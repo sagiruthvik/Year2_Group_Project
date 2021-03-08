@@ -14,6 +14,13 @@ class UserService{
     getCart(){
         return axios.get(USERS_REST_API_URL+'/get_cart');
     }
+    addPastOrder(pastOrder){
+
+        return axios.post(USERS_REST_API_URL+'/pastorders',pastOrder);
+    }
+    deletePastOrder(id){
+        return axios.delete(USERS_REST_API_URL + '/pastorders/' + id);
+    }
 
 
     deleteCart(id){
@@ -23,6 +30,7 @@ class UserService{
     checkout(){
         return axios.delete(USERS_REST_API_URL + '/checkout');
     }
+
 
 
     

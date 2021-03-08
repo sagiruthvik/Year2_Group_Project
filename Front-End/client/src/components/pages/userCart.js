@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import UserService from './UserService.js';
-
+import Burger from '../burger.jpg';
 
 class Cart extends Component {
     constructor(props){
         super(props)
 
         this.state = {
-            userCart:[]
+            userCart:[],
+            pastOrder:[]
             
         }
         this.deleteCart = this.deleteCart.bind(this);
@@ -23,13 +24,22 @@ class Cart extends Component {
     deleteCart(id){
         UserService.deleteCart(id).then( res=> {
             this.setState({cart: this.state.userCart.filter(cart => cart.id !==id)});
-            this.props.history.push("/userCart");
+        
+            window.location.reload(false)
+
         });
+        UserService.deletePastOrder(id).then( res=> {
+            this.setState({pastOrder: this.state.pastOrder.filter(pastOrder => pastOrder.id !==id)});
+        
+            window.location.reload(false)
+
+        });
+        
     }
 
     checkoutCart(){
         UserService.checkout().then( res=> {
-            this.props.history.push("/userCart");
+            this.props.history.push('/delivery');
         });
     }
 
@@ -49,6 +59,7 @@ class Cart extends Component {
  <table className = "cart-table">
      <thread>
          <tr>
+             <th></th>
          <th>Order Name</th>
          <th>Order type</th>
          </tr>
@@ -58,6 +69,7 @@ class Cart extends Component {
      {this.state.userCart.map(
             userCart =>  
          <tr>
+             <th><img className = "cardImageCheckout" src={Burger}></img></th>
              <th>{userCart.name}</th>
              <th>{userCart.type}</th>
              <th>        <button onClick= { () => this.deleteCart(userCart.id)}>Remove</button></th>

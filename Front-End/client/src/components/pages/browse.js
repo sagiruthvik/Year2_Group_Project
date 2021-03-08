@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Burger from '../burger.jpg';
 import UserService from './UserService.js';
 
 
@@ -33,6 +33,7 @@ class Browse extends Component {
 
     addFood(){
         this.props.history.push("add_food");
+        
     }
     updateFood(id){
     this.props.history.push(`/update-food/${id}`);
@@ -45,6 +46,7 @@ class Browse extends Component {
         UserService.deleteFood(id).then( res=> {
             this.setState({food: this.state.foodAvaliable.filter(food => food.id !==id)});
             this.props.history.push("/browse");
+            window.location.reload(false)
         });
     }
    
@@ -62,6 +64,10 @@ class Browse extends Component {
 
 
     <div className = "browseCardContainer">
+
+    <img className = "cardImage" src={Burger}></img>
+
+
     <div className = "browseCardTitle">
         <h3>{Food.name}</h3>
     </div>
@@ -114,7 +120,7 @@ class Browse extends Component {
 
 
 
-<button className = "btn btn-primary" onClick={this.addFood}>Add Food</button>
+<button className = "AddFoodBtn" onClick={this.addFood}>Add Food</button>
 
 
 

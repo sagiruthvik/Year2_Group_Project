@@ -9,12 +9,16 @@ class addCart extends Component {
             id: this.props.match.params.id,
             userid: '',
             name: '',
-            type: ''
+            type: '',
+            restaurant_address: '',
+            order_time: '',
+            delivery_time:''
 
 
         }
 
         this.saveCart = this.saveCart.bind(this);
+
     }
 
     componentDidMount(){
@@ -25,6 +29,9 @@ class addCart extends Component {
                 user_id:1,
                 name: userCart.name,
                 type: userCart.type,
+                restaurant_address: userCart.restaurant_address,
+                order_time: Date().toLocaleString(),
+                delivery_time:30
             });
         });
     }
@@ -32,14 +39,22 @@ class addCart extends Component {
   saveCart =(e)=>{
     e.preventDefault();
     let userCart = {id:this.state.id,user_id: this.state.user_id,name: this.state.name,
-      type: this.state.type,}
+      type: this.state.type,
+      restaurant_address: this.state.restaurant_address}
       console.log('userCart=> ' +JSON.stringify(userCart));
 
+      let pastOrder = {id:this.state.id,user_id: this.state.user_id,delivery_time: this.state.delivery_time,
+        order_time: this.state.order_time,
+      restaurant_address: this.state.restaurant_address}
+      console.log('pastOrder=> ' +JSON.stringify(pastOrder));
+
       UserService.addCart(userCart).then(res =>{
-        this.props.history.push('/userCart');
+        this.props.history.push('/browse');
+      });
+      UserService.addPastOrder(pastOrder).then(res =>{
+        this.props.history.push('/browse');
       });
   }
-
 
 
 
@@ -54,8 +69,9 @@ class addCart extends Component {
         return (
             <div>
                     <div className= "browseList_background"></div>
-                    <div className= "browseList">
+                    <div className= "confirmToCartBox">
 <form>
+    <p>Are you sure you want to add this item</p>
         <button type ="submit" name="" value="submit" variant = "success" onClick={this.saveCart}>Confirm</button>
         <button type ="submit" name="" value="cancel" variant = "success" onClick={this.cancel.bind(this)}>Cancel</button>
         </form>

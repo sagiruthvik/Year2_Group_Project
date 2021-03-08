@@ -91,6 +91,17 @@ function Navbar() {
                         <i className={click ? "fas fa-times" : "fas fa-bars"}/>
                     </div>
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
+                    <li className="nav-item">
+                            <Link to="/browse" className="navbar_links" onClick={closeMobileMenu}>
+                                Browse Menu
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/usercart" className="navbar_links" onClick={closeMobileMenu}>
+                                Basket
+                            </Link>
+                        </li>
+
                         <li className="nav-item">
                             <Link to="/About" className="navbar_links" onClick={closeMobileMenu}>
                                 About
