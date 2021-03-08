@@ -29,12 +29,12 @@ class Profile extends Component {
 
 
   componentDidMount(){
+    const api = 'http://localhost:8080/api/v1/users/';
     let checkAccessToken = authHeader().token;
     let accessToken = "";
     if(checkAccessToken !== undefined) {
       accessToken = authHeader().token.toString();
     }
-    const api = 'http://localhost:8080/api/v1/users/';
 
     axios.interceptors.request.use(
       config => {
@@ -47,7 +47,7 @@ class Profile extends Component {
     );
     axios.get(api).then((response)=>{
             // response.json()
-            console.log("data.id "+response.data);
+            // console.log("data.id "+response.data);
             this.setState({
               isloaded : true,
               ProfileData : response.data

@@ -41,14 +41,16 @@ public class favouritemodel {
     @Column(name = "FavItemDiscount")
     private String FavItemDiscount;
 
-//    @UpdateTimestamp
-//    @Temporal(value = TemporalType.TIMESTAMP)
+
     @Column(name = "FavItemDelTime")
     private Time OrderDeliveryDate;
 
 
     @Column(name = "FavItemCost")
     private Integer FavItemCost;
+
+    @Column(name = "FavUserID")
+    private Integer FavUserID;
 
     public Integer getFavID() {
         return FavID;
@@ -113,20 +115,12 @@ public class favouritemodel {
     public void setFavItemCost(Integer favItemCost) {
         FavItemCost = favItemCost;
     }
-    //    public favouritemodel(String FavRestaurantName,
-//                       String FavRestaurantAddress,
-//                      Integer FavRestaurantRating,
-//                      String FavItem,
-//                       String FavItemCost,
-//                      String FavItemDelTime,
-//                          String FavItemDiscount)
-//    {
-//        FavRestaurantName = FavRestaurantName;
-//        FavRestaurantAddress = FavRestaurantAddress;
-//        FavRestaurantRating = FavRestaurantRating;
-//        FavItem = FavItem;
-//        FavItemDiscount = FavItemDiscount;
-//        FavItemDelTime = FavItemDelTime;
-//        FavItemCost = FavItemCost;
-//    }
+
+    public Integer getFavUserID() {
+        return FavUserID;
+    }
+
+    public void setFavUserID(Integer favUserID) {
+        FavUserID = favUserID;
+    }
 }

@@ -126,7 +126,6 @@ color: white;
 .button:hover {
 cursor: pointer;
 background-color:#6f0527;
-color: white; 
 }
 
 @media screen and (max-width: 1000px) {

@@ -5,6 +5,7 @@ import axios from "axios"
 import React, { Component } from 'react'
 import * as AiIcons from 'react-icons/ai';
 import * as MdIcons from 'react-icons/md'
+import authHeader from "../../Login/authHeader";
 
 export default class Favourites extends Component {
 
@@ -12,17 +13,22 @@ export default class Favourites extends Component {
     super(props);
     this.state = {
       FavouritesData : [],
-      isloaded : false
+      isloaded : false,
+      ProfileData : []
     }
   }
 
   componentDidMount(){
-    const access_token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQGIuY29tIiwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfVVNFUiJ9LHsiYXV0aG9yaXR5IjoidXNlcjpyZWFkIn1dLCJpYXQiOjE2MTQxNjI2NTUsImV4cCI6MTYxNDcwOTgwMH0.gxNoRg5V5I3XGPwpMRhZyfNs5aZWGZd1W0ycEs-G0vL2fB9pRrQZhlYMVnG1x9b7WJEYPkfd3ad7DQCnZuQVIw';
     const api = 'http://localhost:8080/api/v1/users/favData';
+    let checkAccessToken = authHeader().token;
+    let accessToken = "";
+    if(checkAccessToken !== undefined) {
+      accessToken = authHeader().token.toString();
+    }
 
     axios.interceptors.request.use(
       config => {
-        config.headers.authorization = `Bearer ${access_token}`;
+        config.headers.authorization = accessToken;
         return config;
       },
       error =>{
@@ -31,10 +37,20 @@ export default class Favourites extends Component {
     );
     axios.get(api).then((response)=>{
             // response.json()
-            console.log(response.data);
+            //console.log(response.data);
+            // console.log("now test Fav "+ response.data);
+            this.setState({
+              FavouritesData : response.data
+            });
+          })
+
+          axios.get("http://localhost:8080/api/v1/users/").then((response)=>{
+            // response.json()
+            // console.log("Profile data ID "+response.data.id);
+            // console.log("now test Favourite "+response.data);
             this.setState({
               isloaded : true,
-              FavouritesData : response.data
+              ProfileData : response.data
             });
           })
   }
@@ -42,7 +58,14 @@ export default class Favourites extends Component {
 
   render() {
 
-    var{isloaded, FavouritesData} = this.state;
+    var{isloaded, FavouritesData, ProfileData} = this.state;
+
+    var final_favourites = [];
+    for(var i=0;i<FavouritesData.length;i++){
+      if(JSON.stringify(FavouritesData[i].favUserID) == ProfileData.id){
+        final_favourites.push((FavouritesData[i]));
+      }
+    }
 
     if(!isloaded){
       return(
@@ -52,10 +75,28 @@ export default class Favourites extends Component {
       )
     }
 
+    if(final_favourites.length == 0){
+      return(
+        <div className="container">
+          <h1>No Favourites Yet!</h1>
+        </div>
+      )
+    }
+
+    // console.log("final fav length "+final_favourites.length);
+
+    // for(var j=0;j<final_favourites.length;j++){
+    //   // console.log("final fav[0] "+final_favourites[0])
+    //   return(
+    //     <div className="container">
+    //       <h1>{final_favourites[j]}</h1>
+    //     </div>
+    //   )
+    // }
 
     return (
       <div className="container"> 
-      {FavouritesData.map((item,index)=>{
+      {final_favourites.map((item,index)=>{
           return(
           // <div className="row">
           <div className="column" key={item.favID}>

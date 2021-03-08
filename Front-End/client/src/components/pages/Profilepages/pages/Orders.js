@@ -30,16 +30,15 @@ export default class Orders extends Component {
       }
     );
     axios.get(api).then((response)=>{
-            // response.json()
-            console.log("Order 0 data " + JSON.stringify(response.data[0].orderUserID));
+            // console.log("Order 0 data " + JSON.stringify(response.data[0].orderUserID));
+            
             this.setState({
               OrdersData : response.data
             });
           })
 
           axios.get("http://localhost:8080/api/v1/users/").then((response)=>{
-            // response.json()
-            console.log("Profile data ID "+response.data.id);
+            // console.log("now test Order "+response.data);
             this.setState({
               isloaded : true,
               ProfileData : response.data
@@ -57,7 +56,6 @@ export default class Orders extends Component {
         final_orders.push(OrdersData[i]);
       }
     }
-    console.log("final Orders " + (final_orders));
 
     if(!isloaded){
       return(
@@ -74,19 +72,6 @@ export default class Orders extends Component {
         </div>
       )
     }
-
-    // for(var i=0;i<OrdersData.length;i++){
-      // {console.log(OrdersData.length)}
-      // if(JSON.stringify(OrdersData[i].orderUserID) != ProfileData.id){
-      //   {console.log(OrdersData[i].OrderUserID)}
-        
-      //   return(
-      //     <div className="container">
-      //       <h1>No Order Found</h1>
-      //     </div>
-      //   )
-      // }
-      // else{
 
      return (
 
