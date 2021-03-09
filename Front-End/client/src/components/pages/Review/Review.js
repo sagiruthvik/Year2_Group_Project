@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import Footer from "../../Footer"
 import axios from 'axios'
-import { LoginButton } from '../../Navbar/LoginButton';
+import "../Review/ReviewForm.css"
+
 const Review = () => {
 
     const[name, setname] = useState('');
@@ -20,15 +21,20 @@ const reviewregister = (e) =>{
     
         return(
             <div>
-                <div>
-                    <form onSubmit={reviewregister}>
-                        <label>Name</label>
-                        <input type="text" required onChange={e => setname(e.target.value)}/>
-                        <label>Description</label>
-                        <input type="text" onChange={e => setdescription(e.target.value)} />
-                        <button>Post</button>
+                
+                <div className = "background">
+                    <form className = "form-shape" onSubmit={reviewregister}>
+                        <div className = "form-contents">
+                        <h3 className = "form-text">Name</h3>
+                        <input className = "form-input" type="text" required onChange={e => setname(e.target.value)}/>
+                        <h3 className = "form-text" >Description</h3>
+                        <textarea className = "form-input-big" placeholder = "200" type="text" onChange={e => setdescription(e.target.value)} />
+                        <div className = "form-button">
+                            <button >Post</button>
+                        </div>
+                        
 
-
+                        </div>
                     </form>
 
 
