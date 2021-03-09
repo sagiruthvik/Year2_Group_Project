@@ -28,8 +28,12 @@ import Main from './components/pages/Profilepages/Main';
 import TermsConditions from './components/pages/TermsConditions';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import FAQ from './components/pages/FAQ';
+
+
 import notFound from './components/pages/Findfood/notFound';
 import found from './components/pages/Findfood/found';
+import Review from './components/pages/Review/Review'
+
 function App() {
   return (
       <Router>
@@ -53,13 +57,14 @@ function App() {
 		<Route path = "/update-food/:id" exact component ={UpdateFood} />
 		<Route path= '/signup' exact component = {Signup} />
 		<Route path= '/login' exact component = {Login} />
-		<Route path= '/notFound' exact component = {notFound} />
-    <Route path= '/found' exact component = {found} />
 		<Route path= '/cart-food/:id' exact component = {addCart} />
 		<Route path= '/userCart' exact component = {userCart} />
     <Route path= '/delivery' exact component = {delivery} />
 		
-		
+		<Route path= '/notFound' exact component = {notFound} />
+    <Route path= '/found' exact component = {found} />
+    <Route path= '/Review' exact component = {Review}/>
+
         
       </Switch>
       </Router>

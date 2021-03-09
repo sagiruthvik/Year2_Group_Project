@@ -28,7 +28,7 @@ public class RestauranteController {
 		List<Long> pricePerPostcode = new ArrayList<>();
 		for (String currentPostCode :
 				resturantPostcodes) {
-			Long price = Math.abs((Long.valueOf(postCodeRequest.getDeliveryPostCode(), 36) - Long.valueOf(currentPostCode, 36))/10000);
+			Long price = Math.abs((Long.valueOf(postCodeRequest.getPickUpPostCode(), 36) - Long.valueOf(currentPostCode, 36))/10000);
 			pricePerPostcode.add(price);
 		}
 		for (Long currentPrice :
