@@ -108,7 +108,7 @@ export default class Favourites extends Component {
               <div className="btn">
               <button className="button">Order</button>    <button className="button">Help</button>
               </div>
-                <img src={item.images}></img>
+                <img src={"Users/sagiruthvik/Documents/final_group_project/Front-End/client/src/components/pages/Profilepages/images/"+item.OrderImg}></img>
                 </div>
                 <div className="order_details">
               <h3 className="item">{item.favItem}</h3>

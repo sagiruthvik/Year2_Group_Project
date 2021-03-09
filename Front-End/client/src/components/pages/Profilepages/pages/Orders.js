@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import axios from "axios";
 import authHeader from "../../Login/authHeader";
+import FAQ from "../../FAQ";
 
 export default class Orders extends Component {
 
@@ -30,7 +31,6 @@ export default class Orders extends Component {
       }
     );
     axios.get(api).then((response)=>{
-            // console.log("Order 0 data " + JSON.stringify(response.data[0].orderUserID));
             
             this.setState({
               OrdersData : response.data
@@ -85,9 +85,9 @@ export default class Orders extends Component {
               <p className="res_add">{item.orderRestaurantAddress}</p>
               <p className="order_no">Order{item.orderNumber}</p>
               <div className="btn">
-              <button className="button">Reorder</button>   <button className="button">Help</button>
+              <button className="button">Reorder</button>   <button className="button" src={FAQ}>Help</button>
               </div>
-                <img src={item.images}></img>
+                <img src={"Users/sagiruthvik/Documents/final_group_project/Front-End/client/src/components/pages/Profilepages/images/"+item.OrderImg}></img>
                 </div>
                 <div className="order_details">
                 <h2 className="or_de">Order details</h2>
