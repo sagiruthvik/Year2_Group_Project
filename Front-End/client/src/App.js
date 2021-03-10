@@ -10,7 +10,7 @@ import Problem from './components/pages/Foodwaste/Problem'
 // import Facts from './components/pages/Foodwaste/Facts'
 import Contribute from './components/pages/Foodwaste/Contribute'
 import Donate from './components/pages/Donate'
-
+import Contact from './components/pages/contact-us/contact.js'
 
 
 import './components/style.css';
@@ -22,6 +22,7 @@ import addFood from './components/pages/addFood.js';
 import addCart from './components/pages/addtoCart.js';
 import userCart from './components/pages/userCart.js';
 import delivery from './components/pages/delivery.js';
+import contact from './styles/pages/contact.css'
 
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Main from './components/pages/Profilepages/Main';
@@ -64,6 +65,7 @@ function App() {
 		<Route path= '/notFound' exact component = {notFound} />
     <Route path= '/found' exact component = {found} />
     <Route path= '/Review' exact component = {Review}/>
+    <Route path= '/Contact' exact component = {Contact}/>
 
         
       </Switch>
