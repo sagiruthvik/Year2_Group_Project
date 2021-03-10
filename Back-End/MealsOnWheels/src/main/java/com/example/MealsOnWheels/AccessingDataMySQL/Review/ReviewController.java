@@ -1,11 +1,10 @@
 package com.example.MealsOnWheels.AccessingDataMySQL.Review;
 
-import com.example.MealsOnWheels.AccessingDataMySQL.Restaurant.RestauranteRepo;
-import net.bytebuddy.asm.Advice;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000/")
 @RestController
@@ -16,6 +15,10 @@ public class ReviewController {
     @Autowired
     private ReviewRepo reviewRepo;
 
+    @GetMapping("/getReview")
+    public List<Review> getReviews(){
+        return this.reviewRepo.findAll();
+    }
 
     @PostMapping("/newReview")
     public void saveReview (@Valid @RequestBody ReviewRequest reviewRequest) {
