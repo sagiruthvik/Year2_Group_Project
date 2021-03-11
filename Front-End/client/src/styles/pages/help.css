@@ -1,0 +1,15 @@
+.Help{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.Help h1{
+    color: brown;
+}
+
+.Help p{
+
+    padding: 10px;
+}
