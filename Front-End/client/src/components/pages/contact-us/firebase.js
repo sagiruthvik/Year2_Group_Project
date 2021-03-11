@@ -12,4 +12,4 @@ import firebase from 'firebase'
 
     var db = firebaseApp.firestore();
 
-    export { db };
+    export {db};
