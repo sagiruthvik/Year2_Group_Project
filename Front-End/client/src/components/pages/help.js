@@ -32,7 +32,8 @@ function Help(){
 
                     <p>
                         Customers can also donate to Meals on Wheels directly through the Help page which contains a Donation form.
-                        All Donation proceeds to help us better Meals on Wheels which in turn helps us better our community.
+                        All Donation proceeds to help us better Meals on Wheels which in turn helps us better our community. 
+                        Donations can be used to help increase our delivery output so as to feed more people. It can also help us implement more eco-friendly options to safely deliver.
                     </p>
             </div>
 
