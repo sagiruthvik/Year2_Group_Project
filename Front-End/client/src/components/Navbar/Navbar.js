@@ -128,7 +128,7 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link to="/Donate" className="navbar_links" onClick={closeMobileMenu}>
-                                Donate
+                                Donate to Help
                             </Link>
                         </li>
                         <li className="nav-item">
