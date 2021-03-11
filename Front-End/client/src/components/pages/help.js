@@ -21,7 +21,19 @@ function Help(){
                    </p><br/>
 
                     <h2>For Customers</h2>
-                    <p></p>
+                    <p>
+                        While our main purpose is to feed our beloved customers, nothing makes us happier than a helping hand.
+                    </p><br/>
+
+                    <p>Customers can simply help us by ordering through Meals on Wheels. This simply plays a huge role in preventing food waste which in turn prevents trashing our environment.
+                        You can also choose to make two types of donations - Ingredients and Monetary.
+                        Ingredients can be stored and delivered for when a household in need asks for it. 
+                    </p><br/>
+
+                    <p>
+                        Customers can also donate to Meals on Wheels directly through the Help page which contains a Donation form.
+                        All Donation proceeds to help us better Meals on Wheels which in turn helps us better our community.
+                    </p>
             </div>
 
     )
