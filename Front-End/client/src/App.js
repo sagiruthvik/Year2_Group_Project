@@ -11,7 +11,7 @@ import Problem from './components/pages/Foodwaste/Problem'
 import Contribute from './components/pages/Foodwaste/Contribute'
 import Donate from './components/pages/Donate'
 import Contact from './components/pages/contact-us/contact.js'
-
+import Help from './components/pages/help.js'
 
 import './components/style.css';
 import Login from './components/pages/Login/login.js';
@@ -61,7 +61,7 @@ function App() {
 		<Route path= '/cart-food/:id' exact component = {addCart} />
 		<Route path= '/userCart' exact component = {userCart} />
     <Route path= '/delivery' exact component = {delivery} />
-		
+		<Route path= '/Help' exact component = {Help} />
 		<Route path= '/notFound' exact component = {notFound} />
     <Route path= '/found' exact component = {found} />
     <Route path= '/Review' exact component = {Review}/>
