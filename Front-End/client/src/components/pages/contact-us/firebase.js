@@ -9,3 +9,7 @@ import firebase from 'firebase'
     messagingSenderId: "1030211472925",
     appId: "1:1030211472925:web:48e6dcc9e1b22c004440f4"
     });
+
+    var db = firebaseApp.firestore();
+
+    export { db };
