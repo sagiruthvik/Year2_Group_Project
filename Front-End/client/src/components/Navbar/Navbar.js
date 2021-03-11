@@ -57,7 +57,7 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link to="/Donate" className="navbar_links" onClick={closeMobileMenu}>
-                                Help
+                                Donate
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -128,7 +128,7 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link to="/Donate" className="navbar_links" onClick={closeMobileMenu}>
-                                Help
+                                Donate
                             </Link>
                         </li>
                         <li className="nav-item">
