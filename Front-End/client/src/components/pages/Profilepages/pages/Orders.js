@@ -38,7 +38,7 @@ export default class Orders extends Component {
           })
 
           axios.get("http://localhost:8080/api/v1/users/").then((response)=>{
-            // console.log("now test Order "+response.data);
+            console.log(response.data);
             this.setState({
               isloaded : true,
               ProfileData : response.data

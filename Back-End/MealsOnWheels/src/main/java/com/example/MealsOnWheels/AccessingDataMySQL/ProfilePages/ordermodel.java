@@ -49,6 +49,9 @@ public class ordermodel {
     @Column(name = "OrderUserID")
     private Integer OrderUserID;
 
+    @Column(name = "OrderImg")
+    private String OrderImg;
+
     @UpdateTimestamp
     @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "OrderDate")
@@ -59,7 +62,7 @@ public class ordermodel {
                       @NotNull(message = "Order Quantity cannot be null.") Integer orderQuantity,
                       @NotNull(message = "Order Name cannot be null.") String orderName,
                       @NotNull(message = "Restaurant Name cannot be null.") String orderRestaurantName,
-                      String orderRestaurantAddress, String orderDeliveryDate, Integer orderUserID) {
+                      String orderRestaurantAddress, String orderDeliveryDate, Integer orderUserID, String orderImg) {
         OrderNumber = orderNumber;
         OrderPrice = orderPrice;
         OrderQuantity = orderQuantity;
@@ -68,6 +71,7 @@ public class ordermodel {
         OrderRestaurantAddress = orderRestaurantAddress;
         OrderDeliveryDate = orderDeliveryDate;
         OrderUserID = orderUserID;
+        OrderImg = orderImg;
     }
 
 }
