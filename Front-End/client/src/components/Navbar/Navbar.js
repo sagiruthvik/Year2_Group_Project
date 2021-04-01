@@ -57,7 +57,7 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link to="/Donate" className="navbar_links" onClick={closeMobileMenu}>
-                                Help
+                                Donate
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -73,6 +73,11 @@ function Navbar() {
                         <li className="nav-item">
                             <Link to="/Login" className="navbar_links_mobile" onClick={closeMobileMenu}>
                                 Login
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/Review" className="navbar_links" onClick={closeMobileMenu}>
+                                Review
                             </Link>
                         </li>
                     </ul>
@@ -91,6 +96,11 @@ function Navbar() {
                         <i className={click ? "fas fa-times" : "fas fa-bars"}/>
                     </div>
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
+                  {/*<li className="nav-item">
+                            <Link to="/Review" className="navbar_links" onClick={closeMobileMenu}>
+                                Review
+                            </Link>
+                        </li> */}  
                     <li className="nav-item">
                             <Link to="/browse" className="navbar_links" onClick={closeMobileMenu}>
                                 Browse Menu
@@ -118,7 +128,7 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link to="/Donate" className="navbar_links" onClick={closeMobileMenu}>
-                                Help
+                                Donate to Help
                             </Link>
                         </li>
                         <li className="nav-item">

@@ -63,10 +63,10 @@ export default class Addresses extends Component {
               <p className="city"><span>City :</span><span></span> {item.city}</p>
               <p className="code"><span>Post Code :</span><span></span> {item.postCode}</p>
               <p className="mark"><span>LandMark :</span><span></span> {item.landMark}</p>
-              <div className="btn_add">
+              {/* <div className="btn_add">
                 <button className="button">Edit</button>  
                 <button className="button">Delete</button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -10,8 +10,8 @@ import Problem from './components/pages/Foodwaste/Problem'
 // import Facts from './components/pages/Foodwaste/Facts'
 import Contribute from './components/pages/Foodwaste/Contribute'
 import Donate from './components/pages/Donate'
-
-
+import Contact from './components/pages/contact-us/contact.js'
+import Help from './components/pages/help.js'
 
 import './components/style.css';
 import Login from './components/pages/Login/login.js';
@@ -22,14 +22,19 @@ import addFood from './components/pages/addFood.js';
 import addCart from './components/pages/addtoCart.js';
 import userCart from './components/pages/userCart.js';
 import delivery from './components/pages/delivery.js';
+import contact from './styles/pages/contact.css'
 
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 import Main from './components/pages/Profilepages/Main';
 import TermsConditions from './components/pages/TermsConditions';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import FAQ from './components/pages/FAQ';
+
+
 import notFound from './components/pages/Findfood/notFound';
 import found from './components/pages/Findfood/found';
+import Review from './components/pages/Review/Review'
+
 function App() {
   return (
       <Router>
@@ -53,13 +58,15 @@ function App() {
 		<Route path = "/update-food/:id" exact component ={UpdateFood} />
 		<Route path= '/signup' exact component = {Signup} />
 		<Route path= '/login' exact component = {Login} />
-		<Route path= '/notFound' exact component = {notFound} />
-    <Route path= '/found' exact component = {found} />
 		<Route path= '/cart-food/:id' exact component = {addCart} />
 		<Route path= '/userCart' exact component = {userCart} />
     <Route path= '/delivery' exact component = {delivery} />
-		
-		
+		<Route path= '/Help' exact component = {Help} />
+		<Route path= '/notFound' exact component = {notFound} />
+    <Route path= '/found' exact component = {found} />
+    <Route path= '/Review' exact component = {Review}/>
+    <Route path= '/Contact' exact component = {Contact}/>
+
         
       </Switch>
       </Router>

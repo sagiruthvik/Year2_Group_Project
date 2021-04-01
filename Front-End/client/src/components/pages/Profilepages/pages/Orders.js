@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import axios from "axios";
 import authHeader from "../../Login/authHeader";
-import FAQ from "../../FAQ";
+import img from "../images/burger.png";
 
 export default class Orders extends Component {
 
@@ -46,6 +46,12 @@ export default class Orders extends Component {
           })
   }
 
+  // FAQ_page(){
+  //   let path = `/FAQ`;
+  //   this.props.history.push(path);
+  //   // history.push(path);
+  // }
+
   render() {
 
     var{isloaded, OrdersData, ProfileData} = this.state;
@@ -85,16 +91,16 @@ export default class Orders extends Component {
               <p className="res_add">{item.orderRestaurantAddress}</p>
               <p className="order_no">Order{item.orderNumber}</p>
               <div className="btn">
-              <button className="button">Reorder</button>   <button className="button" src={FAQ}>Help</button>
+              <button className="button" onClick={event =>  window.location.href='http://localhost:3000/browse'}>Reorder</button>    <button className="button" onClick={event =>  window.location.href='http://localhost:3000/FAQ'}>Help</button>
               </div>
-                <img src={"Users/sagiruthvik/Documents/final_group_project/Front-End/client/src/components/pages/Profilepages/images/"+item.OrderImg}></img>
+                <img src={img}></img>
                 </div>
                 <div className="order_details">
                 <h2 className="or_de">Order details</h2>
               <h3 className="item">{item.orderName} {item.orderQuantity}</h3>
-              <p className="price">Paid : £{item.orderPrice}</p>
-              <p className="or_date">Orderd on {item.orderDate}</p>
-              <p className="del_date">Delivered on {item.orderDeliveryDate}</p>
+              {/* <p className="price">Paid : £{item.orderPrice}</p> */}
+              <p className="or_date">Orderd on {item.orderDate.substring(0, 10)}</p>
+              <p className="del_date">Delivered on {item.orderDeliveryDate.substring(0, 10)}</p>
               </div>
             </div>
            </div>

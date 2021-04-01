@@ -63,8 +63,6 @@ class Profile extends Component {
   //   })
   // }
 
-
-
   render() {
 
     var{isloaded, ProfileData, modalIsOpen} = this.state;
@@ -100,9 +98,9 @@ class Profile extends Component {
                   </div>
                 </Modal>
                 <div className="user_content_details">
-                <span className="p_review">Reviews 12{ProfileData.Reviews}</span>
+                <span className="p_review">Reviews 2{ProfileData.Reviews}</span>
                 <span>|</span>
-                <span className="p_order">Orders 12{ProfileData.Orders}</span>
+                <span className="p_order">Orders 2{ProfileData.Orders}</span>
                 </div>
               </div>
             </div>

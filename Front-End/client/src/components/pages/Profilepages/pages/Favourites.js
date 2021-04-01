@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 import * as AiIcons from 'react-icons/ai';
 import * as MdIcons from 'react-icons/md'
 import authHeader from "../../Login/authHeader";
+import img from "../images/burger.png";
 
 export default class Favourites extends Component {
 
@@ -106,13 +107,13 @@ export default class Favourites extends Component {
               <p className="res_add">{item.favRestaurantAddress}</p>
               <p className="rating">Rating 3.8 {item.favRestaurantRating}</p>
               <div className="btn">
-              <button className="button">Order</button>    <button className="button">Help</button>
+              <button className="button" onClick={event =>  window.location.href='http://localhost:3000/browse'}>Order</button>    <button className="button" onClick={event =>  window.location.href='http://localhost:3000/FAQ'}>Help</button>
               </div>
-                <img src={"Users/sagiruthvik/Documents/final_group_project/Front-End/client/src/components/pages/Profilepages/images/"+item.OrderImg}></img>
-                </div>
+                <img src={img}></img>
+                </div>  
                 <div className="order_details">
               <h3 className="item">{item.favItem}</h3>
-              <p className="price">Price : £{item.favItemCost}</p>
+              {/* <p className="price">Price : £{item.favItemCost}</p> */}
               <p className="es_time"><AiIcons.AiOutlineFieldTime />{item.orderDeliveryDate}</p>
               <p className="offer1"><MdIcons.MdLocalOffer /> {item.favItemDiscount}</p>
               <p className="offer2"><MdIcons.MdLocalOffer /> {item.favItemDiscount}</p>

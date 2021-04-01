@@ -1,6 +1,5 @@
 package com.example.MealsOnWheels.AccessingDataMySQL.Restaurant;
 
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
